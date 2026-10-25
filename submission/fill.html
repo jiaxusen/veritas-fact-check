@@ -208,13 +208,13 @@ git push -u origin main</div>
     </div>
     <div class="field-bd">
       <div class="tip">填<b>评委能直接打开</b>的链接。当前是 Cloudflare 快捷隧道，域名重启就变，所以要现场确认一次。</div>
-      <div class="copybox mono" data-copy>https://spirits-chef-sustainability-tea.trycloudflare.com</div>
+      <div class="copybox mono" data-copy>https://veritas-fact-check.app.workbuddy.host/?sharecode=ROAQUDSBDJ</div>
       <h2 class="sec">三条访问路径对比</h2>
       <table>
         <tr><th style="width:26%">场景</th><th>地址</th><th style="width:20%">口令</th><th style="width:14%">能填吗</th></tr>
         <tr><td>本机</td><td><code>http://127.0.0.1:8000</code></td><td>免密</td><td>不能（评委打不开）</td></tr>
         <tr><td>局域网</td><td><code>http://192.168.1.199:8000</code></td><td>免密</td><td>不能（不同网段打不开）</td></tr>
-        <tr><td><b>公网隧道</b></td><td><code>https://spirits-chef-sustainability-tea.trycloudflare.com</code></td><td><b>需要</b></td><td><b style="color:var(--ok)">要填这个</b></td></tr>
+        <tr><td><b>公网隧道</b></td><td><code>https://veritas-fact-check.app.workbuddy.host/?sharecode=ROAQUDSBDJ</code></td><td><b>需要</b></td><td><b style="color:var(--ok)">要填这个</b></td></tr>
       </table>
       <div class="note"><b>提交前必做三件事</b>：① 跑一次 <code>curl -I</code> 确认隧道还活着；② 确认口令 <code>VERITAS-2026</code> 能进；③ 把口令一并写进详细说明里，不然评委打开是登录页会以为坏了。</div>
       <div class="tip" style="margin-top:12px">隧道挂了要重开的话，命令是：</div>
