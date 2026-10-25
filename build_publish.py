@@ -7,7 +7,7 @@ SRC = os.path.dirname(os.path.abspath(__file__))
 DST = os.path.join(SRC, "deploy")
 
 EXCLUDE_DIRS = {".venv", "__pycache__", ".git", "backend"}
-EXCLUDE_FILES = {"history.json"}
+EXCLUDE_FILES = {"history.json", "app.db", "usage_log.jsonl", "usage_state.json"}
 EXCLUDE_SUFFIX = {".log", ".pyc", ".pyo"}
 
 
