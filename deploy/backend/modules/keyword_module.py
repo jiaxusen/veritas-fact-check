@@ -69,6 +69,21 @@ _ENTITY_LEXICON = {
     "致癌", "癌症", "肿瘤", "辐射", "甲醛", "添加剂", "防腐剂", "转基因",
     "手机", "充电", "电池", "锂电池", "微波炉", "隔夜水", "亚硝酸盐", "碘盐",
     "甲状腺", "味精", "鸡精", "酱油", "牛奶", "豆浆", "鸡蛋", "隔夜菜",
+    # ===== 民生与政策（普通网民高频话题）=====
+    "住房公积金", "公积金", "企业年金", "养老金", "社保", "社会保险",
+    "医保", "医疗保险", "养老保险", "失业保险", "工伤保险", "生育保险",
+    "五险一金", "退休", "退休金", "延迟退休", "最低工资", "工资指导线",
+    "个人所得税", "个税", "专项附加扣除", "退税", "税收", "补贴", "消费券",
+    "房价", "楼市", "限购", "房贷", "利率", "存款", "理财", "征信",
+    "医保报销", "异地就医", "药品集采", "门诊统筹", "大病保险",
+    "高考", "考研", "研究生", "四六级", "教师资格", "公务员", "事业单位",
+    "编制", "落户", "户口", "居住证", "学区房", "义务教育", "双减",
+    "职教高考", "专升本", "学位证", "学历", "学籍", "助学金", "奖学金",
+    "助学贷款", "保研", "推免", "调剂", "国家线", "自主招生",
+    "生育津贴", "产假", "婚假", "年假", "加班费", "劳动法", "劳动合同",
+    "试用期", "裁员", "失业登记", "低保", "残疾人补贴",
+    "电信诈骗", "养老诈骗", "反诈", "实名制", "网贷", "信用卡", "断卡行动",
+    "车牌", "限行", "摇号", "驾照", "违章", "年检", "电动车", "新国标",
     # ===== 常见谣言对象 =====
     "金鱼", "记忆", "七秒", "宇航员", "太空", "人造建筑", "长城",
     "酸性体质", "碱性体质", "排毒", "宿便", "经络", "穴位",
@@ -89,6 +104,60 @@ _COMMON_WORDS = {
 }
 def _normalize(text: str) -> str:
     return re.sub(r"\s+", "", text or "")
+
+
+# 句首噪声前缀：这些词本身没有检索价值，还会污染截断兜底
+_PREFIX_NOISE = (
+    "网传", "网上流传", "网上传闻", "据说", "听说", "传闻", "有消息称",
+    "近日有消息称", "近日", "有网友称", "网友爆料", "有人说", "传言",
+)
+# 兜底切分用的分隔符
+_SEG_SPLIT = re.compile(r"[，。,.;；：:！!？?、\s\"“”‘’（）()【】\[\]/|]")
+
+
+def _strip_prefix(norm: str) -> str:
+    """去掉句首的"网传/据说"类噪声，避免污染截断兜底。"""
+    for _ in range(3):
+        for p in sorted(_PREFIX_NOISE, key=len, reverse=True):
+            if norm.startswith(p) and len(norm) > len(p) + 2:
+                norm = norm[len(p):]
+                break
+        else:
+            break
+    return norm
+
+
+def _fallback_terms(norm: str) -> list[str]:
+    """词典未命中时的兜底：按标点切分，取像词的实词片段。"""
+    norm = _strip_prefix(norm)
+    cands: list[str] = []
+    for part in _SEG_SPLIT.split(norm):
+        part = part.strip()
+        if len(part) < 2:
+            continue
+        # 片段过长时按虚词再切一刀
+        buf = ""
+        for ch in part:
+            if ch in _BOUNDARY_CHARS:
+                if len(buf) >= 2:
+                    cands.append(buf)
+                buf = ""
+            else:
+                buf += ch
+        if len(buf) >= 2:
+            cands.append(buf)
+        if len(part) <= 8 and part not in cands:
+            cands.append(part)
+    out: list[str] = []
+    for c in sorted(set(cands), key=len, reverse=True):
+        if c in _STOPWORDS or len(c) > 8:
+            continue
+        if c[0] in _BOUNDARY_CHARS or c[-1] in _BOUNDARY_CHARS:
+            continue
+        out.append(c)
+        if len(out) >= 3:
+            break
+    return out
 def _is_valid_gram(gram: str) -> bool:
     """判断 n-gram 是否像一个完整中文词。"""
     if len(gram) < 2 or not re.fullmatch(r"[\u4e00-\u9fa5]+", gram):
@@ -104,7 +173,7 @@ def extract_keywords(text: str, limit: int = 5) -> list[str]:
     """提取核心关键词。
     优先级：实体词典 > 数量表达 > 白名单二字词 > 整句兜底。
     """
-    norm = _normalize(text)
+    norm = _strip_prefix(_normalize(text))
     if not norm:
         return []
     hits: list[str] = []
@@ -129,9 +198,15 @@ def extract_keywords(text: str, limit: int = 5) -> list[str]:
                 hits.append(gram)
             if len(hits) >= limit:
                 break
-    # 4) 极端兜底：整句（保证至少有一个检索词）
+    # 4) 兜底：先按标点/虚词切出实词片段，再退化为整句
+    if len(hits) < 2:
+        for term in _fallback_terms(norm):
+            if term not in hits:
+                hits.append(term)
+            if len(hits) >= 2:
+                break
     if not hits:
-        hits = [norm[:10]]
+        hits = [_strip_prefix(norm)[:12]]
     return hits[:limit]
 def build_queries(keywords: list[str], text: str, max_queries: int = 6) -> list[str]:
     """构造检索式，兼顾精确与召回。"""

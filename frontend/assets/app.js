@@ -302,9 +302,14 @@ function postJSON(path, body) {
 function engineValue() {
   return ($('#engineSelect') && $('#engineSelect').value) || 'auto';
 }
+function sceneValue() {
+  const el = $('#sceneSelect');
+  return el ? el.value : 'rigorous';
+}
+
 async function fetchCard(text, mode, useLLM, engine) {
   // 老版本后端不识别 engine 字段会自动忽略，不影响调用
-  const body = { text, mode, engine: engine || 'auto' };
+  const body = { text, mode, engine: engine || 'auto', scene: sceneValue() };
   const resp = await postJSON(useLLM ? '/api/verify/llm' : '/api/verify', body);
   if (!resp.ok) {
     const err = await resp.json().catch(() => ({}));
@@ -316,7 +321,7 @@ async function fetchCard(text, mode, useLLM, engine) {
 /* ---------- 分段核查：优先服务端拆句，失败则前端拆句 + 并发请求 ---------- */
 async function fetchSegmentsServer(text, mode, engine) {
   try {
-    const r = await postJSON('/api/verify/segment', { text, mode, engine: engine || 'auto' });
+    const r = await postJSON('/api/verify/segment', { text, mode, engine: engine || 'auto', scene: sceneValue() });
     if (!r.ok) return null;
     const d = await r.json();
     if (d && d.segmented && d.segments && d.segments.length >= 2) return d;
@@ -559,6 +564,38 @@ function engineLabel(card) {
   return '本地查证引擎';
 }
 
+const CAT_META = [
+  ['政府', '#3B82F6'], ['央媒', '#EF4444'], ['学术', '#8B5CF6'], ['科普', '#22D39A'],
+  ['国际', '#0EA5E9'], ['媒体', '#F59E0B'], ['百科', '#94A3B8'], ['核查', '#14B8A6'],
+  ['知识库', '#00E5C0'], ['本地库', '#00B8A0'], ['其他', '#64748B'],
+];
+const CAT_COLOR = Object.fromEntries(CAT_META);
+
+function compositionBar(sources) {
+  const counts = {};
+  sources.forEach((s) => {
+    const k = s.category || '其他';
+    counts[k] = (counts[k] || 0) + 1;
+  });
+  const order = CAT_META.map(([k]) => k).filter((k) => counts[k]);
+  Object.keys(counts).forEach((k) => { if (!order.includes(k)) order.push(k); });
+  if (!order.length) return '';
+  const total = sources.length;
+  const segs = order.map((k) => {
+    const pct = (counts[k] / total) * 100;
+    return `<span class="cb-seg" style="width:${pct.toFixed(2)}%;background:${CAT_COLOR[k] || '#64748B'}" title="${esc(k)} ${counts[k]} 条"></span>`;
+  }).join('');
+  const legend = order.map((k) =>
+    `<span class="cb-item"><i style="background:${CAT_COLOR[k] || '#64748B'}"></i>${esc(k)} ${counts[k]}</span>`).join('');
+  const authority = sources.filter((s) => s.credibility === 'A' || s.credibility === 'B').length;
+  return `<div class="comp-bar">
+    <div class="cb-track">${segs}</div>
+    <div class="cb-legend">${legend}
+      <span class="cb-auth">权威来源 ${authority} / ${total} 条</span>
+    </div>
+  </div>`;
+}
+
 function sourceFilterBar(sources) {
   const counts = { A: 0, B: 0, C: 0 };
   sources.forEach((s) => { if (counts[s.credibility] !== undefined) counts[s.credibility]++; });
@@ -568,7 +605,8 @@ function sourceFilterBar(sources) {
     ['B', `可靠 ${counts.B}`],
     ['C', `一般 ${counts.C}`],
   ];
-  return `<div class="src-filter">${opts.map(([k, label]) =>
+  return `${compositionBar(sources)}
+    <div class="src-filter">${opts.map(([k, label]) =>
     `<button class="sf-btn ${sourceFilter === k ? 'on' : ''}" data-k="${k}">${label}</button>`).join('')}</div>`;
 }
 
@@ -587,6 +625,10 @@ function sourceCardHtml(sources) {
           <span>${esc(s.published_at)}</span>
         </div>
         <div class="source-snippet">${esc(s.snippet)}</div>
+        ${s.authority_reason ? `<details class="src-why">
+          <summary>凭什么算${s.credibility === 'A' ? '权威' : s.credibility === 'B' ? '可靠' : '一般'}？</summary>
+          <div class="src-why-body">${esc(s.authority_reason)}</div>
+        </details>` : ''}
       </div>
     </div>`).join('');
 }

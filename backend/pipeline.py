@@ -69,11 +69,41 @@ def fuse(remote: dict | None, search_result: dict, check_result: dict,
     return search_result, check_result, verdict, arbitration, ev_map
 
 
-def run_pipeline(raw_text: str, engine: str = "local", mode: str = "balanced", **kwargs) -> dict:
+def _backfill_source_meta(sources: list[dict]) -> None:
+    """为缺少归属分类/权威依据的来源补齐字段（融合路径重建来源后会缺失）。"""
+    for s in sources:
+        if not isinstance(s, dict):
+            continue
+        if s.get("category") and s.get("authority_reason"):
+            continue
+        if not s.get("category") or not s.get("authority_reason"):
+            from modules.web_search_module import classify_domain
+            level, score, kind, category = classify_domain(s.get("url", ""))
+            if not s.get("credibility"):
+                s["credibility"] = level
+            if not s.get("credibility_score"):
+                s["credibility_score"] = score
+            if not s.get("org_type"):
+                s["org_type"] = kind
+            if not s.get("category"):
+                s["category"] = category
+        if not s.get("authority_reason"):
+            from modules.web_search_module import authority_reason
+            s["authority_reason"] = authority_reason(s)
+
+
+def run_pipeline(
+    raw_text: str,
+    engine: str = "local",
+    mode: str = "balanced",
+    scene: str = "rigorous",
+    **kwargs,
+) -> dict:
     """执行一次完整查证，返回查证卡数据。
 
     engine: local 本地 / fusion 本地+在线融合 / auto 自动（在线不可用时降级）。
     mode  : balanced 均衡 / strict 严谨 / loose 宽松。
+    scene : daily 日常速查 / rigorous 严谨求证 / study 学习求证。
     兼容说明：签名保留 **kwargs，避免上游传入额外参数时报 TypeError。
     """
     started = time.perf_counter()
@@ -87,7 +117,7 @@ def run_pipeline(raw_text: str, engine: str = "local", mode: str = "balanced", *
     remote_future = None
     if want_remote:
         remote_future = _REMOTE_POOL.submit(verify_remote, validated.text)
-    search_result = search(keywords, validated.text)
+    search_result = search(keywords, validated.text, scene=scene)
     # ④ 合并在线结果
     remote = None
     remote_error = ""
@@ -144,6 +174,18 @@ def run_pipeline(raw_text: str, engine: str = "local", mode: str = "balanced", *
     card["queries"] = search_result.get("queries", [])
     card["tone"] = tone
     card["mode"] = mode
+    card["scene"] = scene
+    # 融合路径会重建来源，这里统一回填可解释字段，保证前端展示不缺项
+    _backfill_source_meta(card.get("sources") or [])
+    comp: dict[str, int] = {}
+    auth = 0
+    for s in card.get("sources") or []:
+        comp[s.get("category") or "其他"] = comp.get(s.get("category") or "其他", 0) + 1
+        if (s.get("credibility") or "C") in ("A", "B"):
+            auth += 1
+    card["authority_count"] = auth
+    card["authority_target"] = search_result.get("authority_target", 6)
+    card["composition"] = comp
     card["engine_requested"] = str(engine).lower()
     card["remote_used"] = bool(remote)
     if want_remote and not remote:

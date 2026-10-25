@@ -109,6 +109,7 @@ class VerifyRequest(BaseModel):
     text: str = Field(..., description="待核实文本")
     mode: str = Field("balanced", description="核查模式：balanced 均衡 / strict 严谨 / loose 宽松")
     engine: str = Field("auto", description="引擎：auto 自动（在线融合，失败降级）/ local 本地 / fusion 融合 / remote 在线优先")
+    scene: str = Field("rigorous", description="场景：daily 日常速查 / rigorous 严谨求证 / study 学习求证")
 
 
 def _safe_mode(mode: str) -> str:
@@ -121,12 +122,18 @@ def _safe_engine(engine: str) -> str:
     return value if value in ("auto", "local", "fusion", "remote") else "auto"
 
 
-def _run(text: str, engine: str, mode: str) -> dict:
-    """调用主流程。pipeline 版本尚未支持 mode 时自动降级调用。"""
+def _safe_scene(scene: str) -> str:
+    """场景白名单：daily 日常速查 / rigorous 严谨求证 / study 学习求证。"""
+    value = str(scene or "rigorous").lower()
+    return value if value in ("daily", "rigorous", "study", "academic") else "rigorous"
+
+
+def _run(text: str, engine: str, mode: str, scene: str = "rigorous") -> dict:
+    """调用主流程。pipeline 版本尚未支持 scene 时自动降级调用。"""
     try:
-        return run_pipeline(text, engine=engine, mode=mode)
+        return run_pipeline(text, engine=engine, mode=mode, scene=scene)
     except TypeError:
-        return run_pipeline(text, engine=engine)
+        return run_pipeline(text, engine=engine, mode=mode)
 class BatchRequest(BaseModel):
     texts: list[str] = Field(..., description="待核实文本列表")
 class OcrRequest(BaseModel):
@@ -229,7 +236,12 @@ def screen_capture(request: Request):
 @app.post("/api/verify")
 def verify(req: VerifyRequest):
     try:
-        card = _run(req.text, _safe_engine(req.engine), _safe_mode(req.mode))
+        card = _run(
+            req.text,
+            _safe_engine(req.engine),
+            _safe_mode(req.mode),
+            _safe_scene(getattr(req, "scene", "rigorous")),
+        )
     except InputError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     _append_history(card)
@@ -246,11 +258,12 @@ def verify_segment(req: VerifyRequest):
     """
     mode = _safe_mode(req.mode)
     engine = _safe_engine(req.engine)
+    scene = _safe_scene(getattr(req, "scene", "rigorous"))
     seg_engine = engine if engine in ("fusion", "remote") else "local"
     items = split_claims(req.text)
     if len(items) < 2:
         try:
-            card = _run(req.text, engine, mode)
+            card = _run(req.text, engine, mode, scene)
         except InputError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         _append_history(card)

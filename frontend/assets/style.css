@@ -780,6 +780,40 @@ mark { color: inherit; padding: 1px 3px; border-radius: 3px; }
 
 .weak-tag { margin-left: 6px; padding: 1px 6px; font-size: 10px; border-radius: 3px; color: var(--amber); background: rgba(255, 176, 32, .12); }
 
+/* ---------- 来源构成可视化 ---------- */
+.comp-bar { margin-bottom: 12px; }
+.cb-track {
+  display: flex; height: 10px; border-radius: 5px; overflow: hidden;
+  background: rgba(255,255,255,.06); border: 1px solid var(--line);
+}
+.cb-seg { display: block; height: 100%; }
+.cb-legend {
+  display: flex; flex-wrap: wrap; gap: 10px 14px;
+  margin-top: 8px; font-size: 12px; color: var(--dim);
+}
+.cb-item { display: inline-flex; align-items: center; gap: 5px; }
+.cb-item i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+.cb-auth {
+  margin-left: auto; color: var(--accent); font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+/* ---------- 权威度可解释标注 ---------- */
+.src-why { margin-top: 8px; }
+.src-why > summary {
+  cursor: pointer; font-size: 12px; color: var(--dim);
+  list-style: none; display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border: 1px dashed var(--line-strong); border-radius: 5px;
+  user-select: none;
+}
+.src-why > summary::-webkit-details-marker { display: none; }
+.src-why > summary::before { content: "▸"; font-size: 10px; }
+.src-why[open] > summary::before { content: "▾"; }
+.src-why > summary:hover { color: var(--accent); border-color: var(--accent); }
+.src-why-body {
+  margin-top: 7px; padding: 8px 11px; font-size: 12.5px; line-height: 1.65;
+  color: var(--dim); background: rgba(255,255,255,.03);
+  border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0;
+}
 .src-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 13px; }
 .sf-btn {
   padding: 5px 13px; font-family: var(--sans); font-size: 11.5px;

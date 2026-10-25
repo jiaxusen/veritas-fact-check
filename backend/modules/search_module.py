@@ -9,9 +9,11 @@ from modules.keyword_module import build_queries, extract_keywords
 from modules.knowledge_module import knowledge_sources, match_knowledge
 from modules.domain_module import match_domain
 from modules.university_module import match_university
-from modules.web_search_module import web_search
+from modules.web_search_module import web_search, authority_reason, _MODE_CONFIG
 DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "sources.json"
 _CRED_RANK = {"A": 3, "B": 2, "C": 1, "D": 0}
+# 场景 → 最终来源条数
+_SCENE_TARGET = {k: v[1] for k, v in _MODE_CONFIG.items()}
 def _load_db() -> dict:
     try:
         with DATA_PATH.open("r", encoding="utf-8") as fh:
@@ -41,8 +43,11 @@ def _local_search(keywords: list[str], text: str) -> tuple[list[dict], dict | No
         item["relevance"] = 0.9
         out.append(item)
     return out, best_fact
-def search(keywords: list[str], text: str) -> dict:
-    """执行检索：通识层 + 领域扩展层 + 本地事实库 + 联网检索，分层合并。"""
+def search(keywords: list[str], text: str, scene: str = "rigorous") -> dict:
+    """执行检索：通识层 + 领域扩展层 + 本地事实库 + 联网检索，分层合并。
+
+    scene: daily 日常速查 / rigorous 严谨求证 / study 学习求证。
+    """
     # 主通识库优先；未命中依次交由七大领域层、高校层
     knowledge = match_knowledge(text)
     if not knowledge:
@@ -50,7 +55,7 @@ def search(keywords: list[str], text: str) -> dict:
     if not knowledge:
         knowledge = match_university(text)
     local_sources, local_fact = _local_search(keywords, text)
-    web = web_search(keywords, text, max_sources=8)
+    web = web_search(keywords, text, max_sources=8, mode=scene)
     sources: list[dict] = []
     trace: list[dict] = []
     # ① 通识层（最高优先）
@@ -82,13 +87,38 @@ def search(keywords: list[str], text: str) -> dict:
             continue
         seen.add(key)
         filtered.append(src)
-    # ⑤ 排序：通识 > 本地事实 > 相关性+可信度
+    # ⑤ 补齐每条来源的可解释字段（通识层与本地库来源默认缺这些字段）
+    for s in filtered:
+        if not s.get("category"):
+            s["category"] = "知识库" if s.get("source_type") == "knowledge" else "本地库"
+        if not s.get("authority_reason"):
+            s["authority_reason"] = authority_reason(s)
+
+    # ⑥ 排序：通识/本地库优先 → 权威等级 → 权威分 → 相关性
+    _LVL = {"A": 3, "B": 2, "C": 1, "D": 0}
+
     def _rank(s: dict) -> tuple:
         stype = s.get("source_type", "search")
-        tier = {"knowledge": 3, "local": 2}.get(stype, 1)
-        return (tier, s.get("relevance", 0) * 0.6 + s.get("credibility_score", 60) / 100 * 0.4)
+        tier = {"knowledge": 4, "local": 3}.get(stype, 0)
+        return (
+            tier,
+            _LVL.get(s.get("credibility", "C"), 1),
+            s.get("credibility_score", 60),
+            s.get("relevance", 0),
+        )
+
     filtered.sort(key=_rank, reverse=True)
-    filtered = filtered[:8]
+    target = _SCENE_TARGET.get(scene, 8)
+    filtered = filtered[:target]
+
+    authority_count = sum(
+        1 for s in filtered if _LVL.get(s.get("credibility", "C"), 1) >= 2
+    )
+    composition: dict[str, int] = {}
+    for s in filtered:
+        key = s.get("category") or "其他"
+        composition[key] = composition.get(key, 0) + 1
+
     return {
         "keywords": keywords,
         "queries": build_queries(keywords, text),
@@ -96,6 +126,10 @@ def search(keywords: list[str], text: str) -> dict:
         "sources": filtered,
         "insufficient": len(filtered) < 2,
         "source_count": len(filtered),
+        "authority_count": authority_count,
+        "authority_target": web.get("authority_target", 6),
+        "composition": composition,
+        "scene": scene,
         "knowledge": knowledge,
         "local_fact": local_fact,
         "trace": trace,
