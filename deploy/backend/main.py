@@ -124,6 +124,13 @@ async def access_gate(request: Request, call_next):
     # 预检请求交给 CORS 中间件处理
     if request.method == "OPTIONS":
         return await call_next(request)
+    # 静态资源放行：JS/CSS/图片/字体等无需口令（否则页面加载时拿不到脚本）
+    _path = request.url.path
+    if _path.startswith("/assets/") or _path in ("/favicon.ico", "/robots.txt"):
+        return await call_next(request)
+    if _path.lower().endswith((".js", ".css", ".png", ".jpg", ".jpeg", ".gif",
+                               ".svg", ".ico", ".woff", ".woff2", ".ttf", ".map")):
+        return await call_next(request)
 
     # 本机 / 局域网免密
     if cfg.get("public_only", True) and auth_module.is_private_host(
