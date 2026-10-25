@@ -14,7 +14,27 @@ from collections import defaultdict, deque
 from datetime import datetime
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data"
+def _resolve_data_dir() -> Path:
+    """与 db_module 一致：优先可写目录，云平台只读时退回临时目录。"""
+    import os
+    import tempfile
+    candidates = []
+    env_dir = os.environ.get("VERITAS_DATA_DIR") or os.environ.get("DATA_DIR")
+    if env_dir:
+        candidates.append(Path(env_dir))
+    candidates.append(BASE_DIR / "data")
+    candidates.append(Path(tempfile.gettempdir()) / "veritas_data")
+    for cand in candidates:
+        try:
+            cand.mkdir(parents=True, exist_ok=True)
+            probe = cand / ".write_probe"
+            probe.write_text("ok", encoding="utf-8")
+            probe.unlink()
+            return cand
+        except (OSError, PermissionError):
+            continue
+    return Path(tempfile.gettempdir()) / "veritas_data"
+DATA_DIR = _resolve_data_dir()
 CONFIG_FILE = DATA_DIR / "usage.json"
 LOG_FILE = DATA_DIR / "usage_log.jsonl"
 STATE_FILE = DATA_DIR / "usage_state.json"

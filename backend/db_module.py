@@ -12,9 +12,30 @@ from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data"
+# 数据目录解析：云平台部署目录通常只读，需落到可写位置
+# 优先级：环境变量 DATA_DIR > 可写检测后的 backend/data > 系统临时目录
+def _resolve_data_dir() -> Path:
+    import os
+    import tempfile
+    candidates = []
+    env_dir = os.environ.get("VERITAS_DATA_DIR") or os.environ.get("DATA_DIR")
+    if env_dir:
+        candidates.append(Path(env_dir))
+    candidates.append(BASE_DIR / "data")
+    candidates.append(Path(tempfile.gettempdir()) / "veritas_data")
+    for cand in candidates:
+        try:
+            cand.mkdir(parents=True, exist_ok=True)
+            probe = cand / ".write_probe"
+            probe.write_text("ok", encoding="utf-8")
+            probe.unlink()
+            return cand
+        except (OSError, PermissionError):
+            continue
+    return Path(tempfile.gettempdir()) / "veritas_data"
+DATA_DIR = _resolve_data_dir()
 DB_FILE = DATA_DIR / "app.db"
-LEGACY_HISTORY = DATA_DIR / "history.json"
+LEGACY_HISTORY = BASE_DIR / "data" / "history.json"
 _init_lock = threading.Lock()
 _initialized = False
 SCHEMA = """
