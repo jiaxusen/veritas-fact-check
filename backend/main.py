@@ -13,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 import access_module
 import llm_engine
+import usage_module
 from concurrent.futures import ThreadPoolExecutor
 from modules.card_module import build_card
 from modules.grade_module import grade
@@ -41,6 +42,24 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+def _identity_of(request: Request, key: str) -> tuple[str, bool]:
+    """防烧钱身份：公网取口令前缀，本机/局域网为 privileged。"""
+    if auth_module.is_private_host(request.url.hostname or ""):
+        return "local", True
+    return (key[:16] or "anonymous"), False
+async def _metered_call(request: Request, call_next, identity: str, privileged: bool):
+    """执行请求并记录用量日志（仅 API 写接口）。"""
+    started = time.perf_counter()
+    resp = await call_next(request)
+    if request.method == "POST" and request.url.path.startswith("/api/"):
+        usage_module.record(
+            identity=identity,
+            path=request.url.path,
+            status=resp.status_code,
+            elapsed_ms=int((time.perf_counter() - started) * 1000),
+            privileged=privileged,
+        )
+    return resp
 
 
 # ---- 公网访问口令 ----
@@ -72,7 +91,19 @@ async def access_gate(request: Request, call_next):
                 str(request.url.replace_query_params(**params)), status_code=307
             )
         else:
-            resp = await call_next(request)
+            # 防烧钱三件套：限流 + 配额（仅 API 写接口）
+            if request.method == "POST" and request.url.path.startswith("/api/"):
+                identity, privileged = _identity_of(request, key)
+                blocked = usage_module.guard(identity, privileged)
+                if blocked is not None:
+                    return JSONResponse(
+                        status_code=429,
+                        content=blocked,
+                        headers={"Retry-After": str(blocked.get("retry_after", 60))},
+                    )
+                resp = await _metered_call(request, call_next, identity, privileged)
+            else:
+                resp = await call_next(request)
         resp.set_cookie(
             auth_module.COOKIE_NAME,
             key,
@@ -90,6 +121,16 @@ async def access_gate(request: Request, call_next):
     if cfg.get("public_only", True) and auth_module.is_private_host(
         request.url.hostname or ""
     ):
+        if request.method == "POST" and request.url.path.startswith("/api/"):
+            identity, privileged = _identity_of(request, key)
+            blocked = usage_module.guard(identity, privileged)
+            if blocked is not None:
+                return JSONResponse(
+                    status_code=429,
+                    content=blocked,
+                    headers={"Retry-After": str(blocked.get("retry_after", 60))},
+                )
+            return await _metered_call(request, call_next, identity, privileged)
         return await call_next(request)
 
     if request.url.path.startswith("/api/"):
@@ -314,13 +355,17 @@ def verify_llm(req: VerifyRequest):
     未配置密钥时自动回退本地引擎。
     """
     mode = _safe_mode(req.mode)
-    if not llm_engine.is_llm_available():
+    if not llm_engine.is_llm_available() or usage_module.is_degraded():
         try:
             # 不能硬编码降级为 local，否则勾选大模型时在线融合会被一并丢弃
             card = _run(req.text, _safe_engine(req.engine), mode)
         except InputError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
-        card["engine_note"] = "未配置大模型密钥，已自动使用本地查证引擎"
+        card["engine_note"] = (
+            "今日成本已达熔断线，已自动降级为本地查证引擎"
+            if usage_module.is_degraded()
+            else "未配置大模型密钥，已自动使用本地查证引擎"
+        )
         _append_history(card)
         return card
     started = time.perf_counter()
@@ -436,5 +481,28 @@ def history():
         return {"records": json.loads(HISTORY_FILE.read_text(encoding="utf-8"))}
     except json.JSONDecodeError:
         return {"records": []}
+@app.get("/api/usage/status")
+def usage_status(request: Request):
+    """当前身份的额度余量与限流状态。"""
+    key = (
+        request.query_params.get("key")
+        or request.cookies.get(auth_module.COOKIE_NAME)
+        or request.headers.get("x-access-key")
+        or ""
+    )
+    identity, privileged = _identity_of(request, key)
+    return usage_module.status_for(identity, privileged)
+@app.get("/api/usage/admin")
+def usage_admin(request: Request):
+    """用量汇总（仅本机/局域网可访问）。"""
+    if not auth_module.is_private_host(request.url.hostname or ""):
+        raise HTTPException(status_code=403, detail="admin_local_only")
+    return usage_module.admin_stats()
+@app.post("/api/usage/config")
+def usage_config_update(request: Request, update: dict):
+    """更新防烧钱配置（仅本机/局域网可访问）。"""
+    if not auth_module.is_private_host(request.url.hostname or ""):
+        raise HTTPException(status_code=403, detail="admin_local_only")
+    return usage_module.save_config(update)
 if FRONTEND_DIR.exists():
     app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
