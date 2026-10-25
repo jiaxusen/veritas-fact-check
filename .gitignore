@@ -1,0 +1,31 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- 运行产物 / 日志 ----
+*.log
+*.journal
+*.journal.lock
+backend/data/history.json
+
+# ---- 本地敏感配置：口令、密钥、隧道 ----
+backend/data/auth.json
+.env
+.env.*
+tools/*.exe
+tools/*.log
+
+# ---- 大文件 ----
+task.html
+task.json
+task.log
+
+# ---- 系统 / 编辑器 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

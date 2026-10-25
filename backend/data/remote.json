@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "base_url": "https://chazheng-ai.app.workbuddy.host",
+  "sharecode": "YEQ2COGZKU",
+  "pass": "VERITAS-2026",
+  "endpoint": "/api/verify",
+  "timeout": 45,
+  "retries": 2,
+  "backoff": 1.2,
+  "cache_ttl": 900,
+  "max_text_len": 600,
+  "min_score": 25
+}

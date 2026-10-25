@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>访问台 · 查证台 VERITAS</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ===== 访问台专属布局 ===== */
+.gate-wrap {
+  position: relative; z-index: 1;
+  min-height: 100vh; display: grid; place-items: center; padding: 24px;
+}
+.gate-card {
+  width: 100%; max-width: 520px;
+  background: var(--bg-panel);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px; padding: 34px 32px 28px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 64px rgba(0,0,0,.5), var(--shadow-glow);
+  position: relative; overflow: hidden;
+  animation: fadeUp .5s ease;
+}
+.gate-card::before {
+  content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--blue), transparent);
+}
+.gate-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+.gate-brand .brand-mark { width: 44px; height: 44px; }
+.gate-brand h1 { font-size: 24px; font-weight: 800; letter-spacing: 2px; }
+.gate-brand p { font-size: 12px; color: var(--text-mute); font-family: var(--mono); letter-spacing: 2.6px; }
+.gate-meta { display: grid; gap: 10px; margin-bottom: 24px; }
+.gate-meta-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 15px; border-radius: 10px;
+  background: rgba(7, 11, 20, 0.6); border: 1px solid rgba(255,255,255,.055);
+}
+.gate-meta-item .mk { font-size: 12.5px; color: var(--text-mute); letter-spacing: 1.5px; font-family: var(--mono); }
+.gate-meta-item .mv { font-size: 16px; color: var(--text); font-family: var(--mono); font-weight: 600; }
+.gate-meta-item .mv.dev { color: var(--cyan); }
+.gate-meta-item .mv.clock { color: var(--blue); font-size: 19px; letter-spacing: 1px; }
+.gate-divider {
+  display: flex; align-items: center; gap: 12px; margin: 24px 0 20px;
+  font-size: 12.5px; color: var(--text-mute); font-family: var(--mono); letter-spacing: 2px;
+}
+.gate-divider::before, .gate-divider::after {
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+.gate-btn {
+  width: 100%; padding: 14px; border-radius: 10px; border: none; cursor: pointer;
+  font-size: 15px; font-weight: 700; letter-spacing: 1px; margin-bottom: 12px;
+  transition: transform .16s, box-shadow .16s, background .16s;
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+}
+.gate-btn:disabled { opacity: .55; cursor: not-allowed; }
+.gate-btn.owner {
+  background: linear-gradient(120deg, var(--cyan), #12B8E8);
+  color: #03140F;
+  font-size: 16.5px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  padding: 16px 13px;
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+  box-shadow: 0 10px 32px rgba(0, 229, 192, 0.42), 0 0 0 1px rgba(0,229,192,.5) inset;
+}
+.gate-btn.owner:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,229,192,.55), 0 0 0 1px rgba(0,229,192,.6) inset; }
+.gate-btn.gen {
+  background: rgba(74, 158, 255, 0.1); color: var(--blue);
+  border: 1px solid rgba(74, 158, 255, 0.35);
+}
+.gate-btn.gen:hover:not(:disabled) { background: rgba(74,158,255,.18); }
+.gate-code-row { display: flex; gap: 10px; }
+.gate-code-row input {
+  flex: 1; min-width: 0;
+  background: rgba(7, 11, 20, 0.72);
+  border: 1px solid rgba(0, 229, 192, 0.16);
+  border-radius: 10px; padding: 13px 15px;
+  color: var(--text); font-family: var(--mono); font-size: 17px; letter-spacing: 2px;
+  outline: none; transition: border-color .2s, box-shadow .2s;
+  text-transform: uppercase;
+}
+.gate-code-row input:focus { border-color: var(--line-strong); box-shadow: 0 0 0 3px rgba(0,229,192,.08); }
+.gate-code-row input::placeholder { color: var(--text-mute); letter-spacing: 1px; font-size: 12px; text-transform: none; }
+.gate-code-row button {
+  flex: 0 0 auto; padding: 13px 24px; border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(120deg, var(--cyan), #12B8E8);
+  color: #04121A; font-weight: 700; font-size: 15px; letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgba(0, 229, 192, 0.22);
+  transition: transform .16s;
+}
+.gate-code-row button:hover:not(:disabled) { transform: translateY(-1px); }
+.gate-code-row button:disabled { opacity: .55; cursor: not-allowed; }
+.gate-code-box {
+  display: none; margin-top: 14px; padding: 14px 16px; border-radius: 10px;
+  background: rgba(0, 229, 192, 0.07); border: 1px dashed var(--line-strong);
+  text-align: center;
+}
+.gate-code-box.show { display: block; animation: fadeUp .35s ease; }
+.gate-code-box .gk { font-size: 12px; color: var(--text-mute); font-family: var(--mono); letter-spacing: 1.5px; margin-bottom: 6px; }
+.gate-code-box .gv {
+  font-family: var(--mono); font-size: 28px; font-weight: 800; letter-spacing: 4px;
+  color: var(--cyan); cursor: pointer; user-select: all;
+}
+.gate-code-box .gt { font-size: 12px; color: var(--text-mute); margin-top: 6px; }
+.gate-foot { margin-top: 22px; text-align: center; font-size: 12.5px; color: var(--text-mute); line-height: 1.9; }
+.gate-foot b { color: var(--cyan); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer bg-glow-1"></div>
+<div class="bg-layer bg-glow-2"></div>
+<div class="bg-layer bg-scan"></div>
+<div class="gate-wrap">
+  <div class="gate-card">
+    <div class="gate-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00E5C0" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>
+          <path d="M15.5 15.5 L21 21"></path>
+          <path d="M7.5 10.5 L9.8 12.8 L13.8 8.2"></path>
+        </svg>
+      </div>
+      <div>
+        <h1>访问台</h1>
+        <p>ACCESS GATE · VERITAS</p>
+      </div>
+    </div>
+    <div class="gate-meta">
+      <div class="gate-meta-item">
+        <span class="mk">开发者 DEVELOPER</span>
+        <span class="mv dev">J2026</span>
+      </div>
+      <div class="gate-meta-item">
+        <span class="mk">访问时间 ACCESS TIME</span>
+        <span class="mv clock" id="gateClock">--:--:--</span>
+      </div>
+      <div class="gate-meta-item">
+        <span class="mk">访问日期 DATE</span>
+        <span class="mv" id="gateDate">----年--月--日</span>
+      </div>
+    </div>
+    <button class="gate-btn owner" id="ownerBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+        <path d="M10 17l5-5-5-5"></path><path d="M15 12H3"></path>
+      </svg>
+      我是本人 · 免密令直接进入
+    </button>
+    <div class="gate-divider">访客通道 VISITOR</div>
+    <button class="gate-btn gen" id="genBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      生成本次访问密令（发给访客）
+    </button>
+    <div class="gate-code-box" id="codeBox">
+      <div class="gk">本次访问密令 · 10 分钟内有效 · 点击复制</div>
+      <div class="gv" id="codeValue">------</div>
+      <div class="gt">访客在下方输入此密令即可进入</div>
+    </div>
+    <div class="gate-code-row" style="margin-top:14px">
+      <input id="codeInput" placeholder="访客输入密令" maxlength="12" autocomplete="off">
+      <button id="verifyBtn">进入</button>
+    </div>
+    <div class="gate-foot">
+      <p><b>查证台</b> · 结论有依据，来源可追溯</p>
+      <p>本人访问无需密令 · 他人访问需凭开发者生成的密令进入</p>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const API_BASE = (location.protocol === 'file:') ? 'http://127.0.0.1:8000' : '';
+const $ = (s) => document.querySelector(s);
+function toast(msg, ms = 2200) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), ms);
+}
+/* 实时时钟 */
+function tick() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  $('#gateClock').textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+  $('#gateDate').textContent = `${d.getFullYear()}年${p(d.getMonth() + 1)}月${p(d.getDate())}日`;
+}
+setInterval(tick, 1000); tick();
+function enterWithToken(token) {
+  sessionStorage.setItem('vc_access_token', token);
+  sessionStorage.setItem('vc_access_at', String(Date.now()));
+  location.replace('index.html');
+}
+/* 本人直通 */
+$('#ownerBtn').addEventListener('click', async () => {
+  const btn = $('#ownerBtn');
+  btn.disabled = true;
+  try {
+    const r = await fetch(`${API_BASE}/api/access/owner`, { method: 'POST' });
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+    enterWithToken(d.token);
+  } catch (e) {
+    toast('服务未连接，请确认后端已启动', 3000);
+    btn.disabled = false;
+  }
+});
+/* 生成本次访问密令 */
+$('#genBtn').addEventListener('click', async () => {
+  const btn = $('#genBtn');
+  btn.disabled = true;
+  try {
+    const r = await fetch(`${API_BASE}/api/access/generate`, { method: 'POST' });
+    if (!r.ok) throw new Error();
+    const d = await r.json();
+    $('#codeValue').textContent = d.code;
+    $('#codeBox').classList.add('show');
+    toast('密令已生成，点击密令可复制');
+  } catch (e) {
+    toast('服务未连接，请确认后端已启动', 3000);
+  } finally {
+    btn.disabled = false;
+  }
+});
+/* 点击密令复制 */
+$('#codeValue').addEventListener('click', () => {
+  const code = $('#codeValue').textContent;
+  if (code === '------') return;
+  navigator.clipboard.writeText(code)
+    .then(() => toast('密令已复制，快发给访客吧'))
+    .catch(() => toast('复制失败，请手动选择密令'));
+});
+/* 访客凭密令进入 */
+async function verifyCode() {
+  const code = $('#codeInput').value.trim();
+  if (!code) { toast('请输入访问密令'); $('#codeInput').focus(); return; }
+  const btn = $('#verifyBtn');
+  btn.disabled = true;
+  try {
+    const r = await fetch(`${API_BASE}/api/access/verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code })
+    });
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({}));
+      throw new Error(err.detail || '密令无效');
+    }
+    const d = await r.json();
+    toast('密令校验通过，正在进入…');
+    enterWithToken(d.token);
+  } catch (e) {
+    toast(e.message || '密令无效或已过期', 3000);
+    btn.disabled = false;
+    $('#codeInput').focus();
+  }
+}
+$('#verifyBtn').addEventListener('click', verifyCode);
+$('#codeInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') verifyCode(); });
+</script>
+</body>
+</html>

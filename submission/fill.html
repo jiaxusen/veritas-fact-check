@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>查证台 VERITAS · 投稿填报工作台</title>
+<style>
+:root{
+  --bg:#070B14; --panel:#0E1524; --panel2:#111C2E; --line:#1E2C44; --line-strong:#2A3D5C;
+  --txt:#E8EEF9; --dim:#8A9BB5; --cyan:#00E5C0; --blue:#3B82F6;
+  --ok:#22D39A; --bad:#FF4D6D; --warn:#FFB020;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--txt);
+  font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.7; padding:28px 18px 80px;
+  background-image:
+    radial-gradient(circle at 12% 0%,rgba(0,229,192,.10),transparent 42%),
+    radial-gradient(circle at 88% 8%,rgba(59,130,246,.10),transparent 46%),
+    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:auto,auto,52px 52px,52px 52px;
+}
+.wrap{max-width:940px;margin:0 auto}
+
+/* ---- 头部 ---- */
+.hero{
+  border:1px solid var(--line-strong); border-radius:16px; padding:22px 24px;
+  background:linear-gradient(135deg,rgba(0,229,192,.07),rgba(59,130,246,.05) 60%,transparent);
+  position:relative; overflow:hidden; margin-bottom:16px;
+}
+.hero::before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;
+  background:linear-gradient(180deg,var(--cyan),var(--blue),transparent)}
+.hero h1{font-size:21px;letter-spacing:1px;font-weight:800}
+.hero h1 span{color:var(--cyan)}
+.hero p{color:var(--dim);font-size:13px;margin-top:6px}
+
+/* ---- 倒计时 ---- */
+.countdown{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  border:1px solid rgba(255,176,32,.34); border-radius:12px; padding:14px 18px;
+  background:rgba(255,176,32,.07); margin-bottom:18px;
+}
+.countdown .num{font-family:ui-monospace,Consolas,monospace;font-size:26px;font-weight:800;color:var(--warn);letter-spacing:1px}
+.countdown .lbl{font-size:13px;color:var(--dim)}
+.countdown .lbl b{color:var(--txt)}
+
+/* ---- 字段卡 ---- */
+.field{
+  border:1px solid var(--line); border-radius:14px; background:var(--panel);
+  margin-bottom:14px; overflow:hidden;
+}
+.field-hd{
+  display:flex; align-items:center; gap:10px; padding:13px 18px;
+  border-bottom:1px solid var(--line); background:rgba(255,255,255,.018);
+}
+.field-hd .idx{
+  font-family:ui-monospace,Consolas,monospace; font-size:11px; font-weight:700;
+  color:var(--bg); background:var(--cyan); border-radius:5px; padding:1px 7px;
+}
+.field-hd .name{font-size:14.5px;font-weight:700;flex:1}
+.field-hd .req{font-size:11px;color:var(--bad);border:1px solid rgba(255,77,109,.4);border-radius:4px;padding:0 6px}
+.field-hd .len{font-size:11px;color:var(--dim);font-family:ui-monospace,monospace}
+.field-bd{padding:16px 18px}
+.tip{font-size:12.5px;color:var(--dim);margin-bottom:10px}
+.tip b{color:var(--cyan);font-weight:600}
+
+/* ---- 可复制内容 ---- */
+.copybox{
+  position:relative; border:1px dashed var(--line-strong); border-radius:10px;
+  background:var(--panel2); padding:13px 15px; font-size:14px; line-height:1.75;
+  white-space:pre-wrap; word-break:break-word;
+}
+.copybox.mono{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:var(--cyan)}
+.copybox.small{font-size:13px}
+.btn-copy{
+  position:absolute; top:8px; right:8px; cursor:pointer;
+  font-size:11.5px; padding:4px 11px; border-radius:6px;
+  border:1px solid var(--line-strong); background:rgba(0,229,192,.1); color:var(--cyan);
+  transition:.16s;
+}
+.btn-copy:hover{background:rgba(0,229,192,.22)}
+.btn-copy.done{background:rgba(34,211,154,.22);border-color:var(--ok);color:var(--ok)}
+
+/* ---- 候选列表 ---- */
+.alt{border-top:1px solid var(--line);margin-top:12px;padding-top:11px}
+.alt-t{font-size:12px;color:var(--dim);margin-bottom:8px}
+.alt-item{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:13.5px}
+.alt-item .tag{font-size:10.5px;color:var(--blue);border:1px solid rgba(59,130,246,.42);
+  border-radius:4px;padding:0 6px;flex:none;margin-top:3px;font-family:ui-monospace,monospace}
+.alt-item .txt{flex:1}
+.alt-item .btn-mini{flex:none;cursor:pointer;font-size:11px;border:1px solid var(--line-strong);
+  background:transparent;color:var(--dim);border-radius:5px;padding:2px 8px}
+.alt-item .btn-mini:hover{color:var(--cyan);border-color:var(--cyan)}
+
+/* ---- 状态标记 ---- */
+.state{display:flex;gap:6px;align-items:center;font-size:11.5px;padding:2px 9px;border-radius:5px;flex:none}
+.state.todo{background:rgba(255,77,109,.12);color:var(--bad);border:1px solid rgba(255,77,109,.34)}
+.state.done{background:rgba(34,211,154,.12);color:var(--ok);border:1px solid rgba(34,211,154,.34)}
+.state.warn{background:rgba(255,176,32,.12);color:var(--warn);border:1px solid rgba(255,176,32,.34)}
+
+/* ---- 表格 ---- */
+table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 4px}
+th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+th{background:rgba(0,229,192,.07);color:var(--cyan);font-weight:600;font-size:12.5px}
+td{color:#CBD8EA}
+td code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--cyan);
+  background:rgba(0,229,192,.08);padding:1px 5px;border-radius:4px}
+
+h2.sec{font-size:16px;margin:26px 0 12px;padding-left:11px;border-left:3px solid var(--cyan);letter-spacing:.5px}
+.note{border-left:2px solid var(--warn);padding:9px 13px;background:rgba(255,176,32,.06);
+  border-radius:0 8px 8px 0;font-size:13px;color:#D8C08A;margin:11px 0}
+.note b{color:var(--warn)}
+ul.plain{margin:8px 0 0 20px;font-size:13.5px;color:#C6D4E6}
+ul.plain li{margin:5px 0}
+ul.plain li b{color:var(--txt)}
+.foot{text-align:center;color:#5A6B85;font-size:11.5px;margin-top:34px;font-family:ui-monospace,monospace}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <h1>查证台 <span>VERITAS</span> · 投稿填报工作台</h1>
+    <p>中源黑客松选手系统 / 作品提交 · 五项字段已逐条备好，点右上角按钮即可复制</p>
+  </div>
+
+  <div class="countdown">
+    <div class="num" id="cd">--:--:--</div>
+    <div class="lbl">距提交截止 <b>10/25 09:00</b> · 每支队伍只能提交一次，提交后不可修改</div>
+  </div>
+
+  <!-- 01 作品名称 -->
+  <div class="field">
+    <div class="field-hd">
+      <span class="idx">01</span><span class="name">作品名称</span>
+      <span class="req">必填</span><span class="len">已选 23 字</span>
+    </div>
+    <div class="field-bd">
+      <div class="tip">名称要能一眼看懂做什么。<b>主名 + 副名</b>结构在榜单上最清晰。</div>
+      <div class="copybox" data-copy>查证台 VERITAS — 结论有依据，来源可追溯</div>
+      <div class="alt">
+        <div class="alt-t">备选（按场景选）</div>
+        <div class="alt-item"><span class="tag">A</span><span class="txt">查证台 VERITAS — 结论有依据，来源可追溯</span><button class="btn-mini">用这条</button></div>
+        <div class="alt-item"><span class="tag">B</span><span class="txt">VERITAS 查证台 · 一条网传消息的全链路溯源</span><button class="btn-mini">用这条</button></div>
+        <div class="alt-item"><span class="tag">C</span><span class="txt">查证台 — 把"据说"变成可追溯的结论</span><button class="btn-mini">用这条</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 一句话简介 -->
+  <div class="field">
+    <div class="field-hd">
+      <span class="idx">02</span><span class="name">一句话简介</span>
+      <span class="req">必填</span><span class="len">已选 68 字</span>
+    </div>
+    <div class="field-bd">
+      <div class="tip">评委在前 5 秒只会看这一行。<b>痛点 → 做法 → 差异点</b>，一句话讲完。</div>
+      <div class="copybox" data-copy>粘贴一条网传消息，自动完成关键词提取、全网检索、证据双栏核对、三级可信度分级，输出每条依据都可点击追溯的查证卡；本地规则引擎与在线检索并行融合，每条结论都附带来源链接，拒绝"只给结论不给证据"。</div>
+      <div class="alt">
+        <div class="alt-t">短版（40 字内，适合榜单卡位）</div>
+        <div class="alt-item"><span class="tag">短</span><span class="txt">输入一条网传消息，30 秒输出带来源链接、可逐条追溯的查证卡。</span><button class="btn-mini">用这条</button></div>
+        <div class="alt-t" style="margin-top:9px">技术向（突出双引擎融合）</div>
+        <div class="alt-item"><span class="tag">技</span><span class="txt">本地规则引擎 + 在线检索融合的假消息核查系统，三级判定、证据分级、来源可追溯，同一份查证卡数据结构支持三引擎无感切换。</span><button class="btn-mini">用这条</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 代码仓库 -->
+  <div class="field">
+    <div class="field-hd">
+      <span class="idx">03</span><span class="name">代码仓库</span>
+      <span class="state todo">待你填</span>
+    </div>
+    <div class="field-bd">
+      <div class="tip">这个字段<b>我无法代填</b>——需要你自己建仓库并推送。下面是要放进仓库的东西和命令。</div>
+      <div class="copybox mono" data-copy>https://github.com/你的用户名/veritas-fact-check</div>
+      <h2 class="sec">仓库该放什么</h2>
+      <table>
+        <tr><th style="width:34%">路径</th><th>说明</th><th style="width:16%">必须</th></tr>
+        <tr><td><code>backend/</code></td><td>FastAPI 服务、六模块流水线、20 个模块文件</td><td>是</td></tr>
+        <tr><td><code>frontend/</code></td><td>index.html + app.js + style.css + access.html</td><td>是</td></tr>
+        <tr><td><code>backend/data/*.json</code></td><td>知识库 121 条 / 高校 322 所 / 来源库 13 组</td><td>是</td></tr>
+        <tr><td><code>backend/requirements.txt</code></td><td>依赖清单（8 项）</td><td>是</td></tr>
+        <tr><td><code>README.md</code></td><td>已有，含架构 / 接口 / 分级规则 / 自测结果</td><td>是</td></tr>
+        <tr><td><code>backend/.venv/</code></td><td>虚拟环境，几百 MB</td><td><b style="color:var(--bad)">不要</b></td></tr>
+        <tr><td><code>*.log</code> <code>watchdog.log</code></td><td>运行日志</td><td><b style="color:var(--bad)">不要</b></td></tr>
+        <tr><td><code>tools/cloudflared.exe</code></td><td>隧道二进制，体积大</td><td><b style="color:var(--bad)">不要</b></td></tr>
+      </table>
+      <div class="note"><b>先做这一步</b>：仓库里千万别带 <code>backend/data/auth.json</code> 的口令、也别带任何 API Key。评委看到泄露的密钥会直接扣分。</div>
+      <h2 class="sec">推送命令（在 D:\jqw33\Documents\68 下执行）</h2>
+      <div class="copybox mono small" data-copy>git init
+git add backend frontend README.md
+git commit -m "feat: VERITAS 查证台 - 全链路可溯源假消息核查系统"
+git branch -M main
+git remote add origin https://github.com/你的用户名/veritas-fact-check.git
+git push -u origin main</div>
+      <div class="note">执行前先在项目根目录建一个 <code>.gitignore</code>，否则 <code>git add backend</code> 会把 .venv 一起推上去。要我把 .gitignore 生成出来就说一声。</div>
+    </div>
+  </div>
+
+  <!-- 04 演示地址 -->
+  <div class="field">
+    <div class="field-hd">
+      <span class="idx">04</span><span class="name">演示地址</span>
+      <span class="state warn">需现场确认</span>
+    </div>
+    <div class="field-bd">
+      <div class="tip">填<b>评委能直接打开</b>的链接。当前是 Cloudflare 快捷隧道，域名重启就变，所以要现场确认一次。</div>
+      <div class="copybox mono" data-copy>https://combat-bloggers-districts-nails.trycloudflare.com</div>
+      <h2 class="sec">三条访问路径对比</h2>
+      <table>
+        <tr><th style="width:26%">场景</th><th>地址</th><th style="width:20%">口令</th><th style="width:14%">能填吗</th></tr>
+        <tr><td>本机</td><td><code>http://127.0.0.1:8000</code></td><td>免密</td><td>不能（评委打不开）</td></tr>
+        <tr><td>局域网</td><td><code>http://192.168.1.199:8000</code></td><td>免密</td><td>不能（不同网段打不开）</td></tr>
+        <tr><td><b>公网隧道</b></td><td><code>https://combat-bloggers-districts-nails.trycloudflare.com</code></td><td><b>需要</b></td><td><b style="color:var(--ok)">要填这个</b></td></tr>
+      </table>
+      <div class="note"><b>提交前必做三件事</b>：① 跑一次 <code>curl -I</code> 确认隧道还活着；② 确认口令 <code>VERITAS-2026</code> 能进；③ 把口令一并写进详细说明里，不然评委打开是登录页会以为坏了。</div>
+      <div class="tip" style="margin-top:12px">隧道挂了要重开的话，命令是：</div>
+      <div class="copybox mono small" data-copy>tools\cloudflared.exe tunnel --url http://127.0.0.1:8000</div>
+      <div class="note">重开后域名会变，记得回来把这里和表单里的地址一起改掉。</div>
+    </div>
+  </div>
+
+  <!-- 05 封面图 -->
+  <div class="field">
+    <div class="field-hd">
+      <span class="idx">05</span><span class="name">封面图链接</span>
+      <span class="state done">图已生成</span>
+    </div>
+    <div class="field-bd">
+      <div class="tip">表单要的是<b>图片直链</b>（.png / .jpg 结尾），不是仓库页面地址。图我按查证科技风做好了，在 <code>submission/cover.png</code>，1280×720。</div>
+      <div class="copybox mono" data-copy>https://raw.githubusercontent.com/你的用户名/veritas-fact-check/main/submission/cover.png</div>
+      <h2 class="sec">三种拿直链的办法</h2>
+      <ul class="plain">
+        <li><b>方案一 · 仓库直链（推荐）</b>：把 <code>cover.png</code> 推到仓库，用 <code>raw.githubusercontent.com</code> 地址。永久有效，改图重新推即可。</li>
+        <li><b>方案二 · 图床</b>：传 sm.ms / imgur，拿到 <code>https://i.xxx/xxx.png</code>。最快，几十秒搞定。</li>
+        <li><b>方案三 · 走隧道</b>：如果你不想动仓库，把图放进 <code>frontend/assets/</code>，用 <code>https://你的隧道域名/assets/cover.png</code>。缺点是隧道一断链接就废。</li>
+      </ul>
+      <div class="note"><b>坑</b>：GitHub 的 <code>github.com/.../blob/...</code> 是网页地址，填进去预览会是白板。必须是 <code>raw.githubusercontent.com</code>。</div>
+    </div>
+  </div>
+
+  <!-- 06 详细说明 -->
+  <div class="field">
+    <div class="field-hd">
+      <span class="idx">06</span><span class="name">详细说明</span>
+      <span class="req">必填</span><span class="len">技术栈 / 功能亮点 / 运行方式</span>
+    </div>
+    <div class="field-bd">
+      <div class="tip">表单提示词已经点明了三块：<b>技术栈、功能亮点、运行方式</b>。下面这版按这三块排好了，直接整段粘。</div>
+      <div class="copybox small" data-copy id="detailBox">【一句话定位】
+粘贴一条网传消息，自动完成关键词提取 → 全网检索 → 证据双栏核对 → 三级可信度分级 → 查证卡生成，输出每一条依据都可点击跳转的结论。核心主张：结论有依据，来源可追溯。
+
+【技术栈】
+· 后端：Python 3.10+ / FastAPI / Uvicorn，监听 0.0.0.0:8000
+· 前端：原生 HTML + CSS + JavaScript，零框架零构建，单文件渲染
+· 流水线：六模块解耦 —— 输入 → 关键词 → 检索 → 核对 → 分级 → 卡片 → 输出，每模块可独立替换
+· 三引擎：本地规则引擎（知识库命中）/ 在线融合引擎（本地与在线并行 + 可解释仲裁）/ 大模型引擎（三段式提示词），输出同一份数据结构，前端无感切换
+· 知识层：通识共识库 121 条（覆盖人、动物、人与动物、人与生活、人与自然、人与社会、社会与国家、人与教育 8 大领域）+ 全国高校库 322 所 + 已核实事实库 13 组
+· 输入层：Windows 系统 OCR 识别截图与图片；TXT / MD / CSV / PDF / DOCX / XLSX 六种文件本地解析
+· 依赖仅 8 项：fastapi、uvicorn、pydantic、openai、python-multipart、pillow、python-docx、pypdf、openpyxl、winsdk
+· 规模：后端 Python 约 5300 行 / 20 个模块，前端约 2300 行
+
+【功能亮点】
+1. 证据强制绑定来源 —— 每条依据必须挂 source_url，系统层面禁止"只给结论不给证据"，这是与普通 AI 问答最本质的区别。
+2. 双栏证据对照 —— 左侧"支持原文的依据"、右侧"与原文矛盾的证据"并排呈现，不做隐藏式取舍，读者自己看得见分歧。
+3. 三级可信度分级 —— 属实 / 不实 / 存疑，配合 0-100 置信度与环形进度，边界案例不强行给结论（证据不足时输出"存疑"而非硬判）。
+4. 来源可信度打分 —— 按域名分级（政府 .gov.cn、学术、主流媒体、一般站点），并给出 A/B/C/D 可信度标签与分数，来源不是平等罗列。
+5. 在线融合仲裁 —— 本地权威层命中且在线一致则上调置信度；两侧结论差 1 档取更保守一侧；差 2 档以上按进入证据的来源可信度定性。规则全程可解释，不做黑箱覆盖。
+6. 七个独立结果模块 —— 结论 / 依据 / 来源清单 / 分歧说明 / 风险与局限 / 核查元信息，分模块呈现不堆砌；仅当来源冲突时才出现"分歧说明"，不强行二选一。
+7. 多种输入方式 —— 截图识别、导入图片、导入文件（PDF / Word / Excel / TXT / MD / CSV）、长段逐句核查，覆盖真实使用场景。
+8. 查证卡导出 —— Canvas 生成 PNG，可直接分享；支持批量查证（单次 ≤10 条）。
+
+【运行方式】
+环境要求：Python 3.10 及以上
+
+1) 安装依赖
+   cd backend
+   pip install -r requirements.txt
+
+2) 启动服务
+   python run_server.py
+   服务监听 0.0.0.0:8000
+
+3) 浏览器打开
+   本机：http://127.0.0.1:8000
+   局域网：http://<本机IP>:8000（需防火墙放行同网段 8000 端口）
+   公网：见上方演示地址，口令 VERITAS-2026
+
+4) 调用示例
+   curl -X POST http://127.0.0.1:8000/api/verify \
+     -H "Content-Type: application/json" \
+     -d "{\"text\":\"手机整夜充电会严重损坏电池\",\"engine\":\"auto\"}"
+
+主要接口：/api/verify（主查证）、/api/verify/segment（长段逐句）、/api/verify/batch（批量）、/api/input/extract（文件提取）、/api/input/ocr（图片识别）、/api/card/{id}/html（卡片快照）、/api/health（健康检查）
+
+【自测情况】
+7 例语义用例全部通过（含 2 例真实陈述、3 例典型谣言、2 例证据不足边界），12 项接口测试全部通过。实测"手机整夜充电会严重损坏电池"：判定不实，置信度 90，本地知识库与在线检索结论一致，检索到 10 条来源，其中支持 3 条、矛盾 3 条，仲裁动作 confirm。</div>
+    </div>
+  </div>
+
+  <h2 class="sec">提交前最后一遍核对</h2>
+  <table>
+    <tr><th style="width:24%">检查项</th><th>怎么查</th></tr>
+    <tr><td>仓库能公开访问</td><td>退出登录 / 无痕窗口打开仓库链接，能看到文件</td></tr>
+    <tr><td>仓库无密钥</td><td>搜一遍 <code>api_key</code>、<code>VERITAS-2026</code>、<code>.venv</code>，确认没推上去</td></tr>
+    <tr><td>演示地址活着</td><td>无痕窗口打开，输口令，跑一条查证，看到证据和来源</td></tr>
+    <tr><td>封面直链能显示</td><td>无痕窗口打开直链，直接出图而不是下载或 404</td></tr>
+    <tr><td>详细说明提到口令</td><td>评委不知道口令就进不去，务必写在说明里</td></tr>
+    <tr><td>只提交一次</td><td>提交后不可修改，五项都齐了再点</td></tr>
+  </table>
+
+  <div class="foot">VERITAS FACT CHECK · 结论有依据，来源可追溯</div>
+</div>
+
+<script>
+/* 倒计时：到 2026-10-25 09:00 */
+(function () {
+  var end = new Date('2026-10-25T09:00:00+08:00').getTime();
+  var el = document.getElementById('cd');
+  function tick() {
+    var d = end - Date.now();
+    if (d <= 0) { el.textContent = '已截止'; el.style.color = 'var(--bad)'; return; }
+    var h = Math.floor(d / 3600000), m = Math.floor(d % 3600000 / 60000), s = Math.floor(d % 60000 / 1000);
+    el.textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+/* 复制 */
+function copyText(text, btn) {
+  var done = function () {
+    if (!btn) return;
+    var old = btn.textContent;
+    btn.textContent = '已复制';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1400);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(function () { fallback(text, done); });
+  } else { fallback(text, done); }
+}
+function fallback(text, done) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;top:-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+/* 给每个 copybox 挂按钮 */
+document.querySelectorAll('.copybox[data-copy]').forEach(function (box) {
+  var btn = document.createElement('button');
+  btn.className = 'btn-copy';
+  btn.textContent = '复制';
+  btn.addEventListener('click', function () { copyText(box.textContent.trim(), btn); });
+  box.appendChild(btn);
+});
+
+/* 备选项「用这条」*/
+document.querySelectorAll('.alt-item').forEach(function (item) {
+  var btn = item.querySelector('.btn-mini');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var txt = item.querySelector('.txt').textContent.trim();
+    var field = item.closest('.field');
+    var main = field && field.querySelector('.copybox[data-copy]');
+    if (main) {
+      var b = main.querySelector('.btn-copy');
+      main.textContent = txt;
+      if (b) main.appendChild(b);
+      copyText(txt, b);
+    }
+  });
+});
+</script>
+</body>
+</html>

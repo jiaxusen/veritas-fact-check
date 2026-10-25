@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>查证台 · AI 侦探社 | 结论有依据，来源可追溯</title>
+<meta name="description" content="输入一段网传消息，自动完成全网检索、信息核对与溯源，输出带来源的结构化查证卡。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="bg-layer bg-grid"></div>
+<div class="bg-layer bg-glow-1"></div>
+<div class="bg-layer bg-glow-2"></div>
+<div class="bg-layer bg-scan"></div>
+<div class="app">
+  <!-- 顶栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#00E5C0" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>
+          <path d="M15.5 15.5 L21 21"></path>
+          <path d="M7.5 10.5 L9.8 12.8 L13.8 8.2"></path>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>查证台</h1>
+        <p>VERITAS · FACT CHECK</p>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <button class="btn-ghost tiny" id="themeBtn"><span class="th-ico">◑</span>亮色</button>
+      <span class="engine-badge"><span class="dot-live"></span><span id="engineLabel">引擎检测中</span></span>
+      <span id="clock">--:--:--</span>
+    </div>
+  </header>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-tag">◆ AI 侦探社 · 查证赛道</div>
+    <h2>让每一个判断，都有据可查</h2>
+    <p>输入一段网传消息，自动完成 <b>关键词提取 → 全网检索 → 信息核对 → 可信度分级</b>，输出带来源的查证卡</p>
+  </section>
+  <!-- 输入模块 -->
+  <section class="input-panel">
+    <div class="panel-head">
+      <div class="panel-title"><span class="idx">01</span>输入待核实内容</div>
+      <div class="counter"><span id="charCount">0</span> / 2000</div>
+    </div>
+    <div class="drop-zone" id="dropZone">
+      <textarea id="claimInput" placeholder="粘贴一段需要核实的内容，例如：手机整夜充电会严重损坏电池……也可以直接把截图、图片或文件拖到这里"></textarea>
+      <div class="drop-hint" id="dropHint">松开即可识别 · 支持 图片 / TXT / MD / CSV / PDF / Word / Excel</div>
+    </div>
+    <div class="attach-bar">
+      <button class="btn-ghost tiny" id="shotBtn" title="截取屏幕画面并识别其中的文字（需 https 或 localhost）">
+        <span class="at-ico">◫</span>截图识别
+      </button>
+      <button class="btn-ghost tiny" id="imgBtn" title="导入图片并识别其中的文字">
+        <span class="at-ico">▣</span>图片识别
+      </button>
+      <button class="btn-ghost tiny" id="fileBtn" title="导入 TXT / MD / CSV / PDF / DOCX / XLSX 并提取文字">
+        <span class="at-ico">▤</span>文件导入
+      </button>
+      <span class="attach-tip" id="attachTip"></span>
+    </div>
+    <input type="file" id="imgInput" accept="image/*" multiple hidden>
+    <input type="file" id="fileInput" accept=".txt,.md,.log,.csv,.json,.xml,.yml,.yaml,.ini,.html,.htm,.pdf,.docx,.xlsx,.xlsm" multiple hidden>
+    <div class="opt-row">
+      <label class="opt-item">
+        <span class="opt-key">核查模式</span>
+        <select id="modeSelect" title="严谨：来源与证据门槛更高；宽松：更容易给出结论">
+          <option value="balanced">均衡</option>
+          <option value="strict">严谨</option>
+          <option value="loose">宽松</option>
+        </select>
+      </label>
+      <label class="opt-item" title="自动融合：本地流水线与在线查证台并行运行，在线不可用时自动降级为本地">
+        <span class="opt-key">查证引擎</span>
+        <select id="engineSelect">
+          <option value="auto">自动融合（推荐）</option>
+          <option value="local">本地引擎</option>
+          <option value="remote">在线优先</option>
+        </select>
+      </label>
+      <label class="opt-item chk" title="长段文本拆成多个事实点，逐条打分，回答「哪一句不实」">
+        <input type="checkbox" id="splitMode">
+        <span>分段拆解核查</span>
+      </label>
+      <label class="opt-item chk" title="调用大模型做语义核对，未配置密钥时自动回退本地引擎">
+        <input type="checkbox" id="llmMode">
+        <span>大模型增强</span>
+      </label>
+    </div>
+    <div class="input-actions">
+      <div class="samples">
+        <span class="sample-chip" data-text="手机整夜充电会严重损坏电池">典型谣言</span>
+        <span class="sample-chip" data-text="地球是一个两极稍扁、赤道略鼓的球体">真实事实</span>
+        <span class="sample-chip" data-text="网传某地近日出现不明飞行物并伴有异响">模糊信息</span>
+        <span class="sample-chip" data-text="用微波炉加热食物会产生致癌物">健康谣言</span>
+        <span class="sample-chip" data-text="中国长城总长度超过2万公里">常识核查</span>
+      </div>
+      <button class="btn-primary" id="verifyBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 L21 21"></path>
+        </svg>
+        开始查证
+      </button>
+    </div>
+  </section>
+  <!-- 扫描进度 -->
+  <section class="scan-stage" id="scanStage">
+    <div class="scan-track">
+      <div class="scan-step" data-step="0"><span class="step-id">STEP 01</span>提取关键词</div>
+      <div class="scan-step" data-step="1"><span class="step-id">STEP 02</span>全网检索</div>
+      <div class="scan-step" data-step="2"><span class="step-id">STEP 03</span>信息核对</div>
+      <div class="scan-step" data-step="3"><span class="step-id">STEP 04</span>可信度分级</div>
+      <div class="scan-step" data-step="4"><span class="step-id">STEP 05</span>生成查证卡</div>
+    </div>
+  </section>
+  <!-- 结果区 -->
+  <section class="result-area" id="resultArea"></section>
+  <!-- 历史 -->
+  <section class="history-panel" id="historyPanel" style="display:none">
+    <div class="module">
+      <div class="module-head">
+        <span class="m-idx">H</span><h3>最近查证记录</h3>
+        <span class="m-sub" id="historyCount">0 条</span>
+      </div>
+      <div class="history-tools">
+        <input type="text" id="historySearch" placeholder="搜索历史记录：输入关键词后即时过滤">
+        <div class="hl-filters">
+          <button class="hl-filter on" data-level="all">全部</button>
+          <button class="hl-filter" data-level="不实">不实</button>
+          <button class="hl-filter" data-level="存疑">存疑</button>
+          <button class="hl-filter" data-level="部分属实">部分属实</button>
+          <button class="hl-filter" data-level="基本属实">基本属实</button>
+          <button class="hl-filter" data-level="属实">属实</button>
+        </div>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <p><b>查证台</b> · 结论有依据，来源可追溯 · 所有来源均保留链接、标题、域名与发布时间</p>
+    <p>本工具输出仅供参考，不构成法律或专业鉴定意见</p>
+  </footer>
+</div>
+<div class="toast" id="toast"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>
