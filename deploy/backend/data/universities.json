@@ -1,0 +1,8232 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-24",
+  "meta": {
+    "description": "高校知识库。仅收录有公开发布文件可核查的数据，未覆盖全国普通高等学校全量名单，可通过 import_universities.py 导入教育部《全国高等学校名单》补齐。",
+    "national_total_hint": "截至2025年6月20日，全国普通高等学校2919所（本科1365所、高职专科1554所），另有成人高校248所。",
+    "sources": [
+      {
+        "name": "关于公布第二轮“双一流”建设高校及建设学科名单的通知",
+        "publisher": "教育部、财政部、国家发展改革委",
+        "url": "https://www.moe.gov.cn/srcsite/A22/s7065/202202/W020220214318455516037.pdf",
+        "published_at": "2022-02-14",
+        "provides": [
+          "双一流建设高校名单",
+          "双一流建设学科"
+        ]
+      },
+      {
+        "name": "“985工程”学校名单",
+        "publisher": "教育部",
+        "url": "https://www.moe.gov.cn/srcsite/A22/s7065/200612/t20061206_128833.html",
+        "provides": [
+          "985工程39所"
+        ]
+      },
+      {
+        "name": "985、211工程学校名单",
+        "publisher": "211工程名录公开发布件",
+        "provides": [
+          "211工程112所"
+        ]
+      },
+      {
+        "name": "2025年河南省具有普通高等学历教育招生资格学校名单",
+        "publisher": "河南省教育厅",
+        "url": "https://jyt.henan.gov.cn/2025/06-27/3174801.html",
+        "published_at": "2025-06-27",
+        "provides": [
+          "河南省本科61所",
+          "河南省专科116所"
+        ]
+      }
+    ],
+    "field_notes": {
+      "geo_verified": "false 表示省份/城市为按校名推断或未核验，不可作为查证结论依据",
+      "dfc_disciplines": "第二轮双一流建设学科；自行公布学科的学校该字段为空，见 dfc_note",
+      "school_level": "办学层次：本科 / 专科，来自河南省名单",
+      "tags": "层次标签：985 / 211 / 双一流"
+    }
+  },
+  "stats": {
+    "total": 322,
+    "by_tag": {
+      "双一流": 147,
+      "985": 39,
+      "211": 112
+    },
+    "by_school_level": {
+      "专科": 116,
+      "本科": 61
+    },
+    "by_province_top": {
+      "河南省": 177,
+      "北京市": 33,
+      "江苏省": 16,
+      "上海市": 15,
+      "广东省": 8,
+      "四川省": 8,
+      "陕西省": 8,
+      "湖北省": 7,
+      "天津市": 6,
+      "湖南省": 5,
+      "黑龙江省": 4,
+      "辽宁省": 4
+    },
+    "geo_verified": 147,
+    "with_disciplines": 145
+  },
+  "universities": [
+    {
+      "id": "U0001",
+      "name": "三门峡社会管理职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "三门峡市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0002",
+      "name": "三门峡职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "三门峡市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0003",
+      "name": "上海中医药大学",
+      "aliases": [
+        "上中医",
+        "SHUTCM"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中医学",
+        "中药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0004",
+      "name": "上海交通大学",
+      "aliases": [
+        "上交",
+        "SJTU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学",
+        "物理学",
+        "化学",
+        "生物学",
+        "机械工程",
+        "材料科学与工程",
+        "电子科学与技术",
+        "信息与通信工程",
+        "控制科学与工程",
+        "计算机科学与技术",
+        "土木工程",
+        "化学工程与技术",
+        "船舶与海洋工程",
+        "基础医学",
+        "临床医学",
+        "口腔医学",
+        "药学",
+        "工商管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0005",
+      "name": "上海体育学院",
+      "aliases": [
+        "上体",
+        "SUS"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "体育",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "体育学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0006",
+      "name": "上海外国语大学",
+      "aliases": [
+        "上外",
+        "SISU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "语言",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "外国语言文学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0007",
+      "name": "上海大学",
+      "aliases": [
+        "上大",
+        "SHU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "机械工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0008",
+      "name": "上海海洋大学",
+      "aliases": [
+        "海大",
+        "SHOU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "水产"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0009",
+      "name": "上海科技大学",
+      "aliases": [
+        "上科大",
+        "ShanghaiTech"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0010",
+      "name": "上海财经大学",
+      "aliases": [
+        "上财",
+        "SUFE"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "财经",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "应用经济学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0011",
+      "name": "上海音乐学院",
+      "aliases": [
+        "上音",
+        "SHCM"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "音乐与舞蹈学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0012",
+      "name": "东北农业大学",
+      "aliases": [
+        "东农",
+        "NEAU"
+      ],
+      "province": "黑龙江省",
+      "city": "哈尔滨市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "畜牧学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0013",
+      "name": "东北大学",
+      "aliases": [
+        "东大",
+        "NEU"
+      ],
+      "province": "辽宁省",
+      "city": "沈阳市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "冶金工程",
+        "控制科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0014",
+      "name": "东北师范大学",
+      "aliases": [
+        "东师",
+        "NENU"
+      ],
+      "province": "吉林省",
+      "city": "长春市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "马克思主义理论",
+        "教育学",
+        "世界史",
+        "化学",
+        "统计学",
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0015",
+      "name": "东北林业大学",
+      "aliases": [
+        "东林",
+        "NEFU"
+      ],
+      "province": "黑龙江省",
+      "city": "哈尔滨市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "林业工程",
+        "林学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0016",
+      "name": "东华大学",
+      "aliases": [
+        "东华",
+        "DHU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "材料科学与工程",
+        "纺织科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0017",
+      "name": "东南大学",
+      "aliases": [
+        "东大",
+        "SEU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "机械工程",
+        "材料科学与工程",
+        "电子科学与技术",
+        "信息与通信工程",
+        "控制科学与工程",
+        "计算机科学与技术",
+        "建筑学",
+        "土木工程",
+        "交通运输工程",
+        "生物医学工程",
+        "风景园林学",
+        "艺术学理论"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0018",
+      "name": "中南大学",
+      "aliases": [
+        "中大",
+        "CSU"
+      ],
+      "province": "湖南省",
+      "city": "长沙市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学",
+        "材料科学与工程",
+        "冶金工程",
+        "矿业工程",
+        "交通运输工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0019",
+      "name": "中南财经政法大学",
+      "aliases": [
+        "中南大",
+        "ZUEL"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "财经",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "法学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0020",
+      "name": "中原工学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0021",
+      "name": "中原科技学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0022",
+      "name": "中国人民公安大学",
+      "aliases": [
+        "公安大学",
+        "PPSUC"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "政法",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "公安学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0023",
+      "name": "中国人民大学",
+      "aliases": [
+        "人大",
+        "RUC"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "哲学",
+        "理论经济学",
+        "应用经济学",
+        "法学",
+        "政治学",
+        "社会学",
+        "马克思主义理论",
+        "新闻传播学",
+        "中国史",
+        "统计学",
+        "工商管理",
+        "农林经济管理",
+        "公共管理",
+        "图书情报与档案管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0024",
+      "name": "中国传媒大学",
+      "aliases": [
+        "中传",
+        "CUC"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "新闻传播学",
+        "戏剧与影视学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0025",
+      "name": "中国农业大学",
+      "aliases": [
+        "农大",
+        "CAU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生物学",
+        "农业工程",
+        "食品科学与工程",
+        "作物学",
+        "农业资源与环境",
+        "植物保护",
+        "畜牧学",
+        "兽医学",
+        "草学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0026",
+      "name": "中国地质大学（北京）",
+      "aliases": [
+        "地大北京",
+        "CUGB"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "地质学",
+        "地质资源与地质工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0027",
+      "name": "中国地质大学（武汉）",
+      "aliases": [
+        "地大",
+        "CUG"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "地质学",
+        "地质资源与地质工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0028",
+      "name": "中国政法大学",
+      "aliases": [
+        "法大",
+        "CUPL"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "政法",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "法学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0029",
+      "name": "中国海洋大学",
+      "aliases": [
+        "海大",
+        "OUC"
+      ],
+      "province": "山东省",
+      "city": "青岛市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "海洋科学",
+        "水产"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0030",
+      "name": "中国石油大学（北京）",
+      "aliases": [
+        "石大北京",
+        "CUPB"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "地质资源与地质工程",
+        "石油与天然气工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0031",
+      "name": "中国石油大学（华东）",
+      "aliases": [
+        "石大",
+        "UPC"
+      ],
+      "province": "山东省",
+      "city": "青岛市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "地质资源与地质工程",
+        "石油与天然气工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0032",
+      "name": "中国矿业大学",
+      "aliases": [
+        "矿大",
+        "CUMT"
+      ],
+      "province": "江苏省",
+      "city": "徐州市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "矿业工程",
+        "安全科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0033",
+      "name": "中国矿业大学（北京）",
+      "aliases": [
+        "矿大北京",
+        "CUMTB"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "矿业工程",
+        "安全科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0034",
+      "name": "中国科学技术大学",
+      "aliases": [
+        "中科大",
+        "USTC"
+      ],
+      "province": "安徽省",
+      "city": "合肥市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学",
+        "物理学",
+        "化学",
+        "天文学",
+        "地球物理学",
+        "生物学",
+        "科学技术史",
+        "材料科学与工程",
+        "计算机科学与技术",
+        "核科学与技术",
+        "安全科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0035",
+      "name": "中国科学院大学",
+      "aliases": [
+        "国科大",
+        "UCAS"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0036",
+      "name": "中国美术学院",
+      "aliases": [
+        "国美",
+        "CAA"
+      ],
+      "province": "浙江省",
+      "city": "杭州市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "美术学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0037",
+      "name": "中国药科大学",
+      "aliases": [
+        "药大",
+        "CPU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0038",
+      "name": "中国音乐学院",
+      "aliases": [
+        "国音",
+        "CCoM"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "音乐与舞蹈学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0039",
+      "name": "中央戏剧学院",
+      "aliases": [
+        "中戏",
+        "CDTA"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "戏剧与影视学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0040",
+      "name": "中央民族大学",
+      "aliases": [
+        "民大",
+        "MUC"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "民族",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "民族学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0041",
+      "name": "中央美术学院",
+      "aliases": [
+        "央美",
+        "CAFA"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "美术学",
+        "设计学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0042",
+      "name": "中央财经大学",
+      "aliases": [
+        "央财",
+        "CUFE"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "财经",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "应用经济学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0043",
+      "name": "中央音乐学院",
+      "aliases": [
+        "央音",
+        "CCOM"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "艺术",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "音乐与舞蹈学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0044",
+      "name": "中山大学",
+      "aliases": [
+        "中大",
+        "SYSU"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "哲学",
+        "数学",
+        "化学",
+        "生物学",
+        "生态学",
+        "材料科学与工程",
+        "电子科学与技术",
+        "基础医学",
+        "临床医学",
+        "药学",
+        "工商管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0045",
+      "name": "云南大学",
+      "aliases": [
+        "云大",
+        "YNU"
+      ],
+      "province": "云南省",
+      "city": "昆明市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "民族学",
+        "生态学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0046",
+      "name": "信阳农林学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0047",
+      "name": "信阳学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0048",
+      "name": "信阳工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0049",
+      "name": "信阳师范大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0050",
+      "name": "信阳涉外职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0051",
+      "name": "信阳科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0052",
+      "name": "信阳职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0053",
+      "name": "信阳航空职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0054",
+      "name": "信阳艺术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "信阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0055",
+      "name": "兰州大学",
+      "aliases": [
+        "兰大",
+        "LZU"
+      ],
+      "province": "甘肃省",
+      "city": "兰州市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "大气科学",
+        "生态学",
+        "草学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0056",
+      "name": "兰考三农职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0057",
+      "name": "内蒙古大学",
+      "aliases": [
+        "内大",
+        "IMU"
+      ],
+      "province": "内蒙古自治区",
+      "city": "呼和浩特市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生物学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0058",
+      "name": "北京中医药大学",
+      "aliases": [
+        "北中医",
+        "BUCM"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中医学",
+        "中西医结合",
+        "中药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0059",
+      "name": "北京交通大学",
+      "aliases": [
+        "北交大",
+        "BJTU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "系统科学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0060",
+      "name": "北京体育大学",
+      "aliases": [
+        "北体",
+        "BSU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "体育",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "体育学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0061",
+      "name": "北京化工大学",
+      "aliases": [
+        "北化",
+        "BUCT"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学工程与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0062",
+      "name": "北京协和医学院",
+      "aliases": [
+        "协和",
+        "PUMC"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生物学",
+        "生物医学工程",
+        "临床医学",
+        "公共卫生与预防医学",
+        "药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0063",
+      "name": "北京外国语大学",
+      "aliases": [
+        "北外",
+        "BFSU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "语言",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "外国语言文学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0064",
+      "name": "北京大学",
+      "aliases": [
+        "北大",
+        "PKU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": null,
+      "dfc_note": "（自主确定建设学科并自行公布）",
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0065",
+      "name": "北京工业大学",
+      "aliases": [
+        "北工大",
+        "BJUT"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "土木工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0066",
+      "name": "北京师范大学",
+      "aliases": [
+        "北师大",
+        "BNU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "哲学",
+        "教育学",
+        "心理学",
+        "中国语言文学",
+        "外国语言文学",
+        "中国史",
+        "数学",
+        "地理学",
+        "系统科学",
+        "生态学",
+        "环境科学与工程",
+        "戏剧与影视学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0067",
+      "name": "北京林业大学",
+      "aliases": [
+        "北林",
+        "BFU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "风景园林学",
+        "林学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0068",
+      "name": "北京理工大学",
+      "aliases": [
+        "北理工",
+        "BIT"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "物理学",
+        "材料科学与工程",
+        "控制科学与工程",
+        "兵器科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0069",
+      "name": "北京科技大学",
+      "aliases": [
+        "北科大",
+        "USTB"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "科学技术史",
+        "材料科学与工程",
+        "冶金工程",
+        "矿业工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0070",
+      "name": "北京航空航天大学",
+      "aliases": [
+        "北航",
+        "BUAA"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "力学",
+        "仪器科学与技术",
+        "材料科学与工程",
+        "控制科学与工程",
+        "计算机科学与技术",
+        "交通运输工程",
+        "航空宇航科学与技术",
+        "软件工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0071",
+      "name": "北京邮电大学",
+      "aliases": [
+        "北邮",
+        "BUPT"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "信息与通信工程",
+        "计算机科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0072",
+      "name": "华东师范大学",
+      "aliases": [
+        "华师大",
+        "ECNU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "教育学",
+        "生态学",
+        "统计学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0073",
+      "name": "华东理工大学",
+      "aliases": [
+        "华理",
+        "ECUST"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "材料科学与工程",
+        "化学工程与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0074",
+      "name": "华中农业大学",
+      "aliases": [
+        "华农",
+        "HZAU"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生物学",
+        "园艺学",
+        "畜牧学",
+        "兽医学",
+        "农林经济管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0075",
+      "name": "华中师范大学",
+      "aliases": [
+        "华师",
+        "CCNU"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "政治学",
+        "教育学",
+        "中国语言文学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0076",
+      "name": "华中科技大学",
+      "aliases": [
+        "华科",
+        "HUST"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "机械工程",
+        "光学工程",
+        "材料科学与工程",
+        "动力工程及工程热物理",
+        "电气工程",
+        "计算机科学与技术",
+        "基础医学",
+        "临床医学",
+        "公共卫生与预防医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0077",
+      "name": "华北水利水电大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0078",
+      "name": "华北电力大学",
+      "aliases": [
+        "华电",
+        "NCEPU"
+      ],
+      "province": "河北省",
+      "city": "保定市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "电气工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0079",
+      "name": "华南农业大学",
+      "aliases": [
+        "华农",
+        "SCAU"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "作物学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0080",
+      "name": "华南师范大学",
+      "aliases": [
+        "华师",
+        "SCNU"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "物理学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0081",
+      "name": "华南理工大学",
+      "aliases": [
+        "华工",
+        "SCUT"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "材料科学与工程",
+        "轻工技术与工程",
+        "食品科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0082",
+      "name": "南京中医药大学",
+      "aliases": [
+        "南中医",
+        "NJUCM"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0083",
+      "name": "南京信息工程大学",
+      "aliases": [
+        "南信大",
+        "NUIST"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "大气科学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0084",
+      "name": "南京农业大学",
+      "aliases": [
+        "南农",
+        "NJAU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "作物学",
+        "农业资源与环境"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0085",
+      "name": "南京医科大学",
+      "aliases": [
+        "南医大",
+        "NMU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "公共卫生与预防医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0086",
+      "name": "南京大学",
+      "aliases": [
+        "南大",
+        "NJU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "哲学",
+        "理论经济学",
+        "中国语言文学",
+        "外国语言文学",
+        "物理学",
+        "化学",
+        "天文学",
+        "大气科学",
+        "地质学",
+        "生物学",
+        "材料科学与工程",
+        "计算机科学与技术",
+        "化学工程与技术",
+        "矿业工程",
+        "环境科学与工程",
+        "图书情报与档案管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0087",
+      "name": "南京师范大学",
+      "aliases": [
+        "南师",
+        "NNU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "地理学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0088",
+      "name": "南京林业大学",
+      "aliases": [
+        "南林",
+        "NJFU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "林业工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0089",
+      "name": "南京理工大学",
+      "aliases": [
+        "南理工",
+        "NJUST"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "兵器科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0090",
+      "name": "南京航空航天大学",
+      "aliases": [
+        "南航",
+        "NUAA"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "力学",
+        "控制科学与工程",
+        "航空宇航科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0091",
+      "name": "南京邮电大学",
+      "aliases": [
+        "南邮",
+        "NJUPT"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "电子科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0092",
+      "name": "南开大学",
+      "aliases": [
+        "南开",
+        "NKU"
+      ],
+      "province": "天津市",
+      "city": "天津市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "应用经济学",
+        "世界史",
+        "数学",
+        "化学",
+        "统计学",
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0093",
+      "name": "南方科技大学",
+      "aliases": [
+        "南科大",
+        "SUSTech"
+      ],
+      "province": "广东省",
+      "city": "深圳市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0094",
+      "name": "南昌大学",
+      "aliases": [
+        "昌大",
+        "NCU"
+      ],
+      "province": "江西省",
+      "city": "南昌市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0095",
+      "name": "南阳农业职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0096",
+      "name": "南阳医学高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0097",
+      "name": "南阳工艺美术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0098",
+      "name": "南阳师范学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0099",
+      "name": "南阳理工学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0100",
+      "name": "南阳科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0101",
+      "name": "南阳职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "南阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0102",
+      "name": "厦门大学",
+      "aliases": [
+        "厦大",
+        "XMU"
+      ],
+      "province": "福建省",
+      "city": "厦门市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "教育学",
+        "化学",
+        "海洋科学",
+        "生物学",
+        "生态学",
+        "统计学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0103",
+      "name": "合肥工业大学",
+      "aliases": [
+        "合工大",
+        "HFUT"
+      ],
+      "province": "安徽省",
+      "city": "合肥市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "管理科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0104",
+      "name": "吉林大学",
+      "aliases": [
+        "吉大",
+        "JLU"
+      ],
+      "province": "吉林省",
+      "city": "长春市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "考古学",
+        "数学",
+        "物理学",
+        "化学",
+        "生物学",
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0105",
+      "name": "同济大学",
+      "aliases": [
+        "同济",
+        "TONGJI"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生物学",
+        "建筑学",
+        "土木工程",
+        "测绘科学与技术",
+        "环境科学与工程",
+        "城乡规划学",
+        "风景园林学",
+        "设计学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0106",
+      "name": "周口城市职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0107",
+      "name": "周口师范学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0108",
+      "name": "周口文理职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0109",
+      "name": "周口智慧能源职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0110",
+      "name": "周口理工职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0111",
+      "name": "周口职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0112",
+      "name": "哈尔滨工业大学",
+      "aliases": [
+        "哈工大",
+        "HIT"
+      ],
+      "province": "黑龙江省",
+      "city": "哈尔滨市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "力学",
+        "机械工程",
+        "材料科学与工程",
+        "控制科学与工程",
+        "计算机科学与技术",
+        "土木工程",
+        "航空宇航科学与技术",
+        "环境科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0113",
+      "name": "哈尔滨工程大学",
+      "aliases": [
+        "哈工程",
+        "HEU"
+      ],
+      "province": "黑龙江省",
+      "city": "哈尔滨市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "船舶与海洋工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0114",
+      "name": "商丘医学高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "商丘市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0115",
+      "name": "商丘学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "商丘市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0116",
+      "name": "商丘工学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "商丘市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0117",
+      "name": "商丘师范学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "商丘市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0118",
+      "name": "商丘幼儿师范高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "商丘市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0119",
+      "name": "商丘职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "商丘市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0120",
+      "name": "四川农业大学",
+      "aliases": [
+        "川农",
+        "SAU"
+      ],
+      "province": "四川省",
+      "city": "雅安市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "作物学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0121",
+      "name": "四川大学",
+      "aliases": [
+        "川大",
+        "SCU"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学",
+        "化学",
+        "材料科学与工程",
+        "基础医学",
+        "口腔医学",
+        "护理学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0122",
+      "name": "国防科技大学",
+      "aliases": [
+        "国防科大",
+        "NUDT"
+      ],
+      "province": "湖南省",
+      "city": "长沙市",
+      "type": "军事",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "信息与通信工程",
+        "计算机科学与技术",
+        "航空宇航科学与技术",
+        "软件工程",
+        "管理科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0123",
+      "name": "复旦大学",
+      "aliases": [
+        "复旦",
+        "FDU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "哲学",
+        "应用经济学",
+        "政治学",
+        "马克思主义理论",
+        "中国语言文学",
+        "外国语言文学",
+        "中国史",
+        "数学",
+        "物理学",
+        "化学",
+        "生物学",
+        "生态学",
+        "材料科学与工程",
+        "环境科学与工程",
+        "基础医学",
+        "临床医学",
+        "公共卫生与预防医学",
+        "中西医结合",
+        "药学",
+        "集成电路科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0124",
+      "name": "外交学院",
+      "aliases": [
+        "外院",
+        "CFAU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "政法",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "政治学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0125",
+      "name": "大连海事大学",
+      "aliases": [
+        "海大",
+        "DMU"
+      ],
+      "province": "辽宁省",
+      "city": "大连市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "交通运输工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0126",
+      "name": "大连理工大学",
+      "aliases": [
+        "大工",
+        "DUT"
+      ],
+      "province": "辽宁省",
+      "city": "大连市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "力学",
+        "机械工程",
+        "化学工程与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0127",
+      "name": "天津中医药大学",
+      "aliases": [
+        "天中医",
+        "TUTCM"
+      ],
+      "province": "天津市",
+      "city": "天津市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0128",
+      "name": "天津医科大学",
+      "aliases": [
+        "天医",
+        "TMU"
+      ],
+      "province": "天津市",
+      "city": "天津市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "临床医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0129",
+      "name": "天津大学",
+      "aliases": [
+        "天大",
+        "TJU"
+      ],
+      "province": "天津市",
+      "city": "天津市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "材料科学与工程",
+        "动力工程及工程热物理",
+        "化学工程与技术",
+        "管理科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0130",
+      "name": "天津工业大学",
+      "aliases": [
+        "天工大",
+        "TJPU"
+      ],
+      "province": "天津市",
+      "city": "天津市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "纺织科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0131",
+      "name": "太原理工大学",
+      "aliases": [
+        "太原理工",
+        "TYUT"
+      ],
+      "province": "山西省",
+      "city": "太原市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学工程与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0132",
+      "name": "宁夏大学",
+      "aliases": [
+        "宁大",
+        "NXU"
+      ],
+      "province": "宁夏回族自治区",
+      "city": "银川市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学工程与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0133",
+      "name": "宁波大学",
+      "aliases": [
+        "宁大",
+        "NBU"
+      ],
+      "province": "浙江省",
+      "city": "宁波市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "力学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0134",
+      "name": "安徽大学",
+      "aliases": [
+        "安大",
+        "AHU"
+      ],
+      "province": "安徽省",
+      "city": "合肥市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0135",
+      "name": "安阳学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "安阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0136",
+      "name": "安阳工学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "安阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0137",
+      "name": "安阳师范学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "安阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0138",
+      "name": "安阳幼儿师范高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "安阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0139",
+      "name": "安阳职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "安阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0140",
+      "name": "对外经济贸易大学",
+      "aliases": [
+        "贸大",
+        "UIBE"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "财经",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "应用经济学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0141",
+      "name": "山东大学",
+      "aliases": [
+        "山大",
+        "SDU"
+      ],
+      "province": "山东省",
+      "city": "济南市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中国语言文学",
+        "数学",
+        "化学",
+        "临床医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0142",
+      "name": "山西大学",
+      "aliases": [
+        "山大",
+        "SXU"
+      ],
+      "province": "山西省",
+      "city": "太原市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "哲学",
+        "物理学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0143",
+      "name": "嵩山少林武术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0144",
+      "name": "平顶山学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "平顶山市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0145",
+      "name": "平顶山工业职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "平顶山市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0146",
+      "name": "平顶山文化艺术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "平顶山市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0147",
+      "name": "平顶山科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "平顶山市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0148",
+      "name": "平顶山职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "平顶山市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0149",
+      "name": "广州中医药大学",
+      "aliases": [
+        "广中医",
+        "GZHTCM"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0150",
+      "name": "广州医科大学",
+      "aliases": [
+        "广医",
+        "GZHM"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "临床医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0151",
+      "name": "广西大学",
+      "aliases": [
+        "西大",
+        "GXU"
+      ],
+      "province": "广西壮族自治区",
+      "city": "南宁市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "土木工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0152",
+      "name": "延边大学",
+      "aliases": [
+        "延大",
+        "YBU"
+      ],
+      "province": "吉林省",
+      "city": "延边朝鲜族自治州",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "外国语言文学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0153",
+      "name": "开封大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0154",
+      "name": "开封工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0155",
+      "name": "开封文化艺术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0156",
+      "name": "开封智慧健康职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0157",
+      "name": "开封职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0158",
+      "name": "成都中医药大学",
+      "aliases": [
+        "成中医",
+        "CDUTCM"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "医药",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0159",
+      "name": "成都理工大学",
+      "aliases": [
+        "成都理工",
+        "CDUT"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "地质资源与地质工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0160",
+      "name": "新乡学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0161",
+      "name": "新乡工程学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0162",
+      "name": "新乡职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0163",
+      "name": "新疆大学",
+      "aliases": [
+        "新大",
+        "XJU"
+      ],
+      "province": "新疆维吾尔自治区",
+      "city": "乌鲁木齐市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "马克思主义理论",
+        "化学",
+        "计算机科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0164",
+      "name": "暨南大学",
+      "aliases": [
+        "暨大",
+        "JNU"
+      ],
+      "province": "广东省",
+      "city": "广州市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "药学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0165",
+      "name": "林州建筑职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "林州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0166",
+      "name": "武汉大学",
+      "aliases": [
+        "武大",
+        "WHU"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "理论经济学",
+        "法学",
+        "马克思主义理论",
+        "化学",
+        "地球物"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0167",
+      "name": "武汉理工大学",
+      "aliases": [
+        "武理工",
+        "WHUT"
+      ],
+      "province": "湖北省",
+      "city": "武汉市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0168",
+      "name": "永城职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "永城市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0169",
+      "name": "汝州职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "汝州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0170",
+      "name": "江南大学",
+      "aliases": [
+        "江大",
+        "JNU"
+      ],
+      "province": "江苏省",
+      "city": "无锡市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "轻工技术与工程",
+        "食品科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0171",
+      "name": "河北工业大学",
+      "aliases": [
+        "河工大",
+        "HEBUT"
+      ],
+      "province": "天津市",
+      "city": "天津市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "电气工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0172",
+      "name": "河南中医药大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0173",
+      "name": "河南交通职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0174",
+      "name": "河南体育学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0175",
+      "name": "河南信息统计职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0176",
+      "name": "河南农业大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0177",
+      "name": "河南农业职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0178",
+      "name": "河南医学高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0179",
+      "name": "河南医药大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [
+        "新乡医学院"
+      ],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0180",
+      "name": "河南司法警官职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0181",
+      "name": "河南地矿职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0182",
+      "name": "河南城建学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "平顶山市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0183",
+      "name": "河南大学",
+      "aliases": [
+        "河大",
+        "HENU"
+      ],
+      "province": "河南省",
+      "city": "开封市",
+      "type": "综合",
+      "school_level": "本科",
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生物学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单",
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科",
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0184",
+      "name": "河南女子职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0185",
+      "name": "河南对外经济贸易职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0186",
+      "name": "河南工业和信息化职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0187",
+      "name": "河南工业大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0188",
+      "name": "河南工业职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0189",
+      "name": "河南工业贸易职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0190",
+      "name": "河南工学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0191",
+      "name": "河南工程学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0192",
+      "name": "河南师范大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0193",
+      "name": "河南应用技术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0194",
+      "name": "河南建筑职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0195",
+      "name": "河南开封科技传媒学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0196",
+      "name": "河南护理职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0197",
+      "name": "河南推拿职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0198",
+      "name": "河南新乡工商职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0199",
+      "name": "河南机电职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0200",
+      "name": "河南林业职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0201",
+      "name": "河南检察职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0202",
+      "name": "河南水利与环境职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0203",
+      "name": "河南测绘职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0204",
+      "name": "河南牧业经济学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0205",
+      "name": "河南物流职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0206",
+      "name": "河南理工大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "焦作市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0207",
+      "name": "河南科技大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0208",
+      "name": "河南科技学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0209",
+      "name": "河南科技职业大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "周口市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0210",
+      "name": "河南经贸职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0211",
+      "name": "河南职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0212",
+      "name": "河南艺术职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0213",
+      "name": "河南警察学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0214",
+      "name": "河南财政金融学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0215",
+      "name": "河南财经政法大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0216",
+      "name": "河南质量工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0217",
+      "name": "河南轻工职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": []
+    },
+    {
+      "id": "U0218",
+      "name": "河海大学",
+      "aliases": [
+        "河海",
+        "HHU"
+      ],
+      "province": "江苏省",
+      "city": "南京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "水利工程",
+        "环境科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0219",
+      "name": "洛阳商业职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0220",
+      "name": "洛阳师范学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0221",
+      "name": "洛阳文化旅游职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0222",
+      "name": "洛阳理工学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0223",
+      "name": "洛阳科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0224",
+      "name": "洛阳职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "洛阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0225",
+      "name": "济源职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "济源市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0226",
+      "name": "浙江大学",
+      "aliases": [
+        "浙大",
+        "ZJU"
+      ],
+      "province": "浙江省",
+      "city": "杭州市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "生物学",
+        "生态学",
+        "机械工程",
+        "光学工程",
+        "材料科学与工程",
+        "动力工程及工程热物理",
+        "电气工程",
+        "控制科学与工程",
+        "计算机科学与技术",
+        "土木工程",
+        "农业工程",
+        "环境科学与工程",
+        "软件工程",
+        "园艺学",
+        "植物保护",
+        "基础医学",
+        "临床医学",
+        "药学",
+        "管理科学与工程",
+        "农林经济管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0227",
+      "name": "海军军医大学",
+      "aliases": [
+        "二医大",
+        "NMMU"
+      ],
+      "province": "上海市",
+      "city": "上海市",
+      "type": "军事",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "基础医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0228",
+      "name": "海南大学",
+      "aliases": [
+        "海大",
+        "HAINU"
+      ],
+      "province": "海南省",
+      "city": "海口市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "作物学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0229",
+      "name": "清华大学",
+      "aliases": [
+        "清华",
+        "THU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": null,
+      "dfc_note": "（自主确定建设学科并自行公布）",
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0230",
+      "name": "湖南大学",
+      "aliases": [
+        "湖大",
+        "HNU"
+      ],
+      "province": "湖南省",
+      "city": "长沙市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "机械工程",
+        "电气工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0231",
+      "name": "湖南师范大学",
+      "aliases": [
+        "湖师大",
+        "HNNU"
+      ],
+      "province": "湖南省",
+      "city": "长沙市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "外国语言文学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0232",
+      "name": "湘潭大学",
+      "aliases": [
+        "湘大",
+        "XTU"
+      ],
+      "province": "湖南省",
+      "city": "湘潭市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0233",
+      "name": "漯河医学高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "漯河市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0234",
+      "name": "漯河职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "漯河市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0235",
+      "name": "漯河食品工程职业大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "漯河市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0236",
+      "name": "濮阳医学高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "濮阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0237",
+      "name": "濮阳石油化工职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "濮阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0238",
+      "name": "濮阳科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "濮阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0239",
+      "name": "濮阳职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "濮阳市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0240",
+      "name": "焦作大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "焦作市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0241",
+      "name": "焦作工贸职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "焦作市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0242",
+      "name": "焦作师范高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "焦作市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0243",
+      "name": "焦作新材料职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "焦作市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0244",
+      "name": "电子科技大学",
+      "aliases": [
+        "成电",
+        "UESTC"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "电子科学与技术",
+        "信息与通信工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0245",
+      "name": "石河子大学",
+      "aliases": [
+        "石大",
+        "SHZU"
+      ],
+      "province": "新疆维吾尔自治区",
+      "city": "石河子市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学工程与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0246",
+      "name": "福州大学",
+      "aliases": [
+        "福大",
+        "FZU"
+      ],
+      "province": "福建省",
+      "city": "福州市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0247",
+      "name": "空军军医大学",
+      "aliases": [
+        "四医大",
+        "AFMU"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "军事",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "临床医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0248",
+      "name": "苏州大学",
+      "aliases": [
+        "苏大",
+        "SUDA"
+      ],
+      "province": "江苏省",
+      "city": "苏州市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "材料科学与工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0249",
+      "name": "西北农林科技大学",
+      "aliases": [
+        "西农",
+        "NWSUAF"
+      ],
+      "province": "陕西省",
+      "city": "咸阳市",
+      "type": "农林",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "植物保护",
+        "畜牧学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0250",
+      "name": "西北大学",
+      "aliases": [
+        "西大",
+        "NWU"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "考古学",
+        "地质学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0251",
+      "name": "西北工业大学",
+      "aliases": [
+        "西工大",
+        "NWPU"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "机械工程",
+        "材料科学与工程",
+        "航空宇航科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0252",
+      "name": "西南交通大学",
+      "aliases": [
+        "西南交大",
+        "SWJTU"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "交通运输工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0253",
+      "name": "西南大学",
+      "aliases": [
+        "西大",
+        "SWU"
+      ],
+      "province": "重庆市",
+      "city": "重庆市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "教育学",
+        "生物学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0254",
+      "name": "西南石油大学",
+      "aliases": [
+        "西油",
+        "SWPU"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "石油与天然气工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0255",
+      "name": "西南财经大学",
+      "aliases": [
+        "西财",
+        "SWUFE"
+      ],
+      "province": "四川省",
+      "city": "成都市",
+      "type": "财经",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "应用经济学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0256",
+      "name": "西安交通大学",
+      "aliases": [
+        "西交大",
+        "XJTU"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "力学",
+        "机械工程",
+        "材料科学与工程",
+        "动力工程及工程热物理",
+        "电气工程",
+        "控制科学与工程",
+        "管理科学与工程",
+        "工商管理"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0257",
+      "name": "西安电子科技大学",
+      "aliases": [
+        "西电",
+        "XDU"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "信息与通信工程",
+        "计算机科学与技术"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0258",
+      "name": "西藏大学",
+      "aliases": [
+        "藏大",
+        "TibetU"
+      ],
+      "province": "西藏自治区",
+      "city": "拉萨市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生态学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0259",
+      "name": "许昌学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "许昌市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0260",
+      "name": "许昌电气职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "许昌市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0261",
+      "name": "许昌职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "许昌市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0262",
+      "name": "许昌陶瓷职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "许昌市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0263",
+      "name": "豫北医学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "新乡市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [
+        "新乡医学院三全学院"
+      ],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0264",
+      "name": "贵州大学",
+      "aliases": [
+        "贵大",
+        "GZU"
+      ],
+      "province": "贵州省",
+      "city": "贵阳市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "植物保护"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0265",
+      "name": "辽宁大学",
+      "aliases": [
+        "辽大",
+        "LNU"
+      ],
+      "province": "辽宁省",
+      "city": "沈阳市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "应用经济学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0266",
+      "name": "郑州亚欧交通职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0267",
+      "name": "郑州体育职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0268",
+      "name": "郑州信息工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0269",
+      "name": "郑州信息科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0270",
+      "name": "郑州健康学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [
+        "郑州澍青医学高等专科学校"
+      ],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0271",
+      "name": "郑州医药健康职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0272",
+      "name": "郑州升达经贸管理学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0273",
+      "name": "郑州卫生健康职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0274",
+      "name": "郑州商学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0275",
+      "name": "郑州商贸旅游职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0276",
+      "name": "郑州城市职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0277",
+      "name": "郑州城建职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0278",
+      "name": "郑州大学",
+      "aliases": [
+        "郑大",
+        "ZZU"
+      ],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": "综合",
+      "school_level": "本科",
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "化学",
+        "材料科学与工程",
+        "临床医学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单",
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科",
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0279",
+      "name": "郑州工业安全职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0280",
+      "name": "郑州工业应用技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0281",
+      "name": "郑州工商学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0282",
+      "name": "郑州工程技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0283",
+      "name": "郑州师范学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0284",
+      "name": "郑州幼儿师范高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0285",
+      "name": "郑州旅游职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0286",
+      "name": "郑州智能科技职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0287",
+      "name": "郑州汽车工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0288",
+      "name": "郑州理工职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0289",
+      "name": "郑州电力职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0290",
+      "name": "郑州电力高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0291",
+      "name": "郑州电子信息职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0292",
+      "name": "郑州电子商务职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0293",
+      "name": "郑州科技学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0294",
+      "name": "郑州经贸学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0295",
+      "name": "郑州美术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0296",
+      "name": "郑州职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0297",
+      "name": "郑州航空工业管理学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0298",
+      "name": "郑州西亚斯学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0299",
+      "name": "郑州财税金融职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0300",
+      "name": "郑州财经学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0301",
+      "name": "郑州轨道工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0302",
+      "name": "郑州软件职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0303",
+      "name": "郑州轻工业大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0304",
+      "name": "郑州铁路职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0305",
+      "name": "郑州食品工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0306",
+      "name": "郑州黄河护理职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0307",
+      "name": "重庆大学",
+      "aliases": [
+        "重大",
+        "CQU"
+      ],
+      "province": "重庆市",
+      "city": "重庆市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "985",
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "机械工程",
+        "电气工程",
+        "土木工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部985工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0308",
+      "name": "长垣烹饪职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "长垣市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0309",
+      "name": "长安大学",
+      "aliases": [
+        "长大",
+        "CHD"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "理工",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "交通运输工程"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0310",
+      "name": "陕西师范大学",
+      "aliases": [
+        "陕师大",
+        "SNNU"
+      ],
+      "province": "陕西省",
+      "city": "西安市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "中国语言文学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0311",
+      "name": "青海大学",
+      "aliases": [
+        "青大",
+        "QHU"
+      ],
+      "province": "青海省",
+      "city": "西宁市",
+      "type": "综合",
+      "school_level": null,
+      "tags": [
+        "211",
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "生态学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "211工程名单",
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0312",
+      "name": "首都师范大学",
+      "aliases": [
+        "首师大",
+        "CNU"
+      ],
+      "province": "北京市",
+      "city": "北京市",
+      "type": "师范",
+      "school_level": null,
+      "tags": [
+        "双一流"
+      ],
+      "dfc_disciplines": [
+        "数学"
+      ],
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "教育部第二轮双一流名单"
+      ],
+      "geo_verified": true,
+      "geo_source": "整理",
+      "data_fields": [
+        "双一流建设学科"
+      ]
+    },
+    {
+      "id": "U0313",
+      "name": "驻马店农业工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "驻马店市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0314",
+      "name": "驻马店幼儿师范高等专科学校",
+      "aliases": [],
+      "province": "河南省",
+      "city": "驻马店市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0315",
+      "name": "驻马店职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "驻马店市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0316",
+      "name": "鹤壁汽车工程职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "鹤壁市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0317",
+      "name": "鹤壁职业技术学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "鹤壁市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0318",
+      "name": "鹤壁能源化工职业学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "鹤壁市",
+      "type": null,
+      "school_level": "专科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "校名推断",
+      "data_fields": []
+    },
+    {
+      "id": "U0319",
+      "name": "黄河交通学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "焦作市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0320",
+      "name": "黄河水利职业技术大学",
+      "aliases": [],
+      "province": "河南省",
+      "city": "开封市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [
+        "黄河水利职业技术学院"
+      ],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0321",
+      "name": "黄河科技学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": "郑州市",
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": "整理",
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    },
+    {
+      "id": "U0322",
+      "name": "黄淮学院",
+      "aliases": [],
+      "province": "河南省",
+      "city": null,
+      "type": null,
+      "school_level": "本科",
+      "tags": [],
+      "dfc_disciplines": null,
+      "dfc_note": null,
+      "former_names": [],
+      "sources": [
+        "河南省2025年招生资格名单"
+      ],
+      "geo_verified": false,
+      "geo_source": null,
+      "data_fields": [
+        "河南省名单（层次）"
+      ]
+    }
+  ]
+}

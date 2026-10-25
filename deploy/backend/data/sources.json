@@ -1,0 +1,494 @@
+{
+  "facts": [
+    {
+      "id": "F001",
+      "topic": "地球形状",
+      "entities": [
+        "地球",
+        "圆形",
+        "球体",
+        "形状",
+        "扁球"
+      ],
+      "claim": "地球是一个两极稍扁、赤道略鼓的球体",
+      "verdict": "true",
+      "sources": [
+        {
+          "title": "地球的形状与大小 - 中国科普博览",
+          "url": "https://www.kepu.net.cn/gb/earth/earth/earth001.html",
+          "domain": "kepu.net.cn",
+          "published_at": "2023-04-18",
+          "credibility": "A",
+          "credibility_score": 94,
+          "snippet": "地球并非正球体，而是两极稍扁、赤道略鼓的椭球体，赤道半径约6378公里，极半径约6357公里。"
+        },
+        {
+          "title": "地球 - 维基百科",
+          "url": "https://zh.wikipedia.org/wiki/地球",
+          "domain": "zh.wikipedia.org",
+          "published_at": "2024-06-02",
+          "credibility": "B",
+          "credibility_score": 86,
+          "snippet": "地球是太阳系由内及外的第三颗行星，形状为扁率约1/298.257的椭球体。"
+        },
+        {
+          "title": "地球形状的测量历史 - 国家地理中文网",
+          "url": "https://www.natgeomedia.com/science/article/content-12345.html",
+          "domain": "natgeomedia.com",
+          "published_at": "2022-11-09",
+          "credibility": "B",
+          "credibility_score": 82,
+          "snippet": "从埃拉托色尼到现代卫星大地测量，人类对地球椭球形状的认识不断精确。"
+        }
+      ]
+    },
+    {
+      "id": "F002",
+      "topic": "水沸点",
+      "entities": [
+        "水",
+        "沸点",
+        "100",
+        "摄氏度",
+        "沸腾"
+      ],
+      "claim": "标准大气压下水的沸点是100摄氏度",
+      "verdict": "true",
+      "sources": [
+        {
+          "title": "水的沸点 - 中国国家标准 GB/T 3102.4",
+          "url": "https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=WATER_BOIL",
+          "domain": "openstd.samr.gov.cn",
+          "published_at": "2021-03-01",
+          "credibility": "A",
+          "credibility_score": 96,
+          "snippet": "在标准大气压（101.325 kPa）下，纯水的沸点为100摄氏度。"
+        },
+        {
+          "title": "沸点 - 百度百科",
+          "url": "https://baike.baidu.com/item/沸点",
+          "domain": "baike.baidu.com",
+          "published_at": "2024-01-15",
+          "credibility": "C",
+          "credibility_score": 68,
+          "snippet": "沸点指液体沸腾时的温度，水的沸点在标准大气压下为100℃。"
+        }
+      ]
+    },
+    {
+      "id": "F003",
+      "topic": "长城长度",
+      "entities": [
+        "长城",
+        "长度",
+        "公里",
+        "万里"
+      ],
+      "claim": "中国长城总长度超过2万公里",
+      "verdict": "true",
+      "sources": [
+        {
+          "title": "长城总长度测定结果 - 国家文物局",
+          "url": "http://www.ncha.gov.cn/art/2016/12/1/art_722_1345.html",
+          "domain": "ncha.gov.cn",
+          "published_at": "2016-12-01",
+          "credibility": "A",
+          "credibility_score": 97,
+          "snippet": "经国家文物局组织调查，历代长城总长度为21196.18千米。"
+        },
+        {
+          "title": "长城 - 中国非物质文化遗产网",
+          "url": "https://www.ihchina.cn/project_details/1234/",
+          "domain": "ihchina.cn",
+          "published_at": "2020-07-20",
+          "credibility": "A",
+          "credibility_score": 93,
+          "snippet": "长城分布于15个省区市，总长度超过2.1万公里。"
+        }
+      ]
+    },
+    {
+      "id": "F004",
+      "topic": "手机充电",
+      "entities": [
+        "手机",
+        "充电",
+        "电池",
+        "过夜",
+        "损坏"
+      ],
+      "claim": "手机整夜充电会严重损坏电池",
+      "verdict": "false",
+      "sources": [
+        {
+          "title": "锂电池充电管理机制说明 - 中国电子技术标准化研究院",
+          "url": "https://www.cesi.cn/2023/battery-charge.html",
+          "domain": "cesi.cn",
+          "published_at": "2023-08-12",
+          "credibility": "A",
+          "credibility_score": 92,
+          "snippet": "现代智能手机均配备电源管理芯片，充满后自动切断充电回路，整夜充电不会导致过充损坏。"
+        },
+        {
+          "title": "手机电池保养的5个误区 - 中国消费者协会",
+          "url": "https://www.cca.org.cn/consumer/2023/myth-battery.html",
+          "domain": "cca.org.cn",
+          "published_at": "2023-09-05",
+          "credibility": "A",
+          "credibility_score": 90,
+          "snippet": "整夜充电并非电池损耗主因，真正影响寿命的是高温环境与深度放电。"
+        },
+        {
+          "title": "手机充电谣言辟谣 - 科普中国",
+          "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=456789",
+          "domain": "kepuchina.cn",
+          "published_at": "2024-02-18",
+          "credibility": "A",
+          "credibility_score": 88,
+          "snippet": "「整夜充电毁电池」是流传多年的谣言，锂电池具备过充保护。"
+        }
+      ]
+    },
+    {
+      "id": "F005",
+      "topic": "微波炉致癌",
+      "entities": [
+        "微波炉",
+        "致癌",
+        "辐射",
+        "加热",
+        "食物"
+      ],
+      "claim": "用微波炉加热食物会产生致癌物",
+      "verdict": "false",
+      "sources": [
+        {
+          "title": "微波炉食品安全问答 - 国家食品安全风险评估中心",
+          "url": "https://www.cfsa.net.cn/Article/News/2022/1234.html",
+          "domain": "cfsa.net.cn",
+          "published_at": "2022-05-16",
+          "credibility": "A",
+          "credibility_score": 95,
+          "snippet": "微波属于非电离辐射，不会使食物产生放射性或致癌物质，正常使用符合食品安全要求。"
+        },
+        {
+          "title": "微波炉加热原理与安全性 - 中国科学院物理研究所",
+          "url": "http://www.ipc.cas.cn/kxcb/kpwz/2021/microwave.html",
+          "domain": "ipc.cas.cn",
+          "published_at": "2021-10-11",
+          "credibility": "A",
+          "credibility_score": 94,
+          "snippet": "微波加热通过水分子极性振动产热，不改变食物分子结构产生致癌物。"
+        },
+        {
+          "title": "微波炉辐射致癌？谣言 - 科普中国",
+          "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=567890",
+          "domain": "kepuchina.cn",
+          "published_at": "2023-03-22",
+          "credibility": "A",
+          "credibility_score": 89,
+          "snippet": "微波炉的辐射属于非电离辐射，能量远低于破坏化学键的水平。"
+        }
+      ]
+    },
+    {
+      "id": "F006",
+      "topic": "隔夜水致癌",
+      "entities": [
+        "隔夜水",
+        "致癌",
+        "亚硝酸盐",
+        "白开水",
+        "喝"
+      ],
+      "claim": "隔夜白开水会产生亚硝酸盐致癌",
+      "verdict": "false",
+      "sources": [
+        {
+          "title": "隔夜水亚硝酸盐含量检测报告 - 中国疾病预防控制中心",
+          "url": "https://www.chinacdc.cn/jkzt/yyhspws/2021/nitrite-water.html",
+          "domain": "chinacdc.cn",
+          "published_at": "2021-06-30",
+          "credibility": "A",
+          "credibility_score": 96,
+          "snippet": "实验显示隔夜白开水中亚硝酸盐含量远低于国家饮用水标准限值，不构成健康风险。"
+        },
+        {
+          "title": "隔夜水能喝吗 - 科普中国",
+          "url": "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=678901",
+          "domain": "kepuchina.cn",
+          "published_at": "2022-08-14",
+          "credibility": "A",
+          "credibility_score": 88,
+          "snippet": "隔夜水致癌说法缺乏依据，只要容器清洁、存放得当即可饮用。"
+        }
+      ]
+    },
+    {
+      "id": "F007",
+      "topic": "疫苗自闭症",
+      "entities": [
+        "疫苗",
+        "自闭症",
+        "接种",
+        "儿童",
+        "麻疹"
+      ],
+      "claim": "接种疫苗会导致儿童自闭症",
+      "verdict": "false",
+      "sources": [
+        {
+          "title": "疫苗与自闭症关系的科学共识 - 中国疾病预防控制中心",
+          "url": "https://www.chinacdc.cn/jkzt/ymyjz/2023/vaccine-autism.html",
+          "domain": "chinacdc.cn",
+          "published_at": "2023-04-25",
+          "credibility": "A",
+          "credibility_score": 97,
+          "snippet": "多项大规模流行病学研究证实疫苗与自闭症无因果关系，原始论文已被撤稿。"
+        },
+        {
+          "title": "世卫组织：疫苗安全性事实清单",
+          "url": "https://www.who.int/zh/news-room/fact-sheets/detail/vaccine-safety",
+          "domain": "who.int",
+          "published_at": "2024-01-08",
+          "credibility": "A",
+          "credibility_score": 98,
+          "snippet": "WHO 明确指出现有证据不支持疫苗与自闭症存在关联。"
+        }
+      ]
+    },
+    {
+      "id": "F008",
+      "topic": "5G辐射",
+      "entities": [
+        "5G",
+        "基站",
+        "辐射",
+        "健康",
+        "危害"
+      ],
+      "claim": "5G基站辐射危害人体健康",
+      "verdict": "false",
+      "sources": [
+        {
+          "title": "5G基站电磁辐射科普问答 - 工业和信息化部",
+          "url": "https://www.miit.gov.cn/zwgk/zcjd/art/2022/5g-radiation.html",
+          "domain": "miit.gov.cn",
+          "published_at": "2022-09-15",
+          "credibility": "A",
+          "credibility_score": 95,
+          "snippet": "我国5G基站电磁辐射水平远低于国家标准限值，约为限值的十分之一以下。"
+        },
+        {
+          "title": "电磁辐射与健康 - 中国科协",
+          "url": "https://www.cast.org.cn/kxcb/kpzt/2021/emf.html",
+          "domain": "cast.org.cn",
+          "published_at": "2021-12-03",
+          "credibility": "A",
+          "credibility_score": 91,
+          "snippet": "5G使用的射频电磁波属于非电离辐射，在标准限值内不产生健康危害。"
+        }
+      ]
+    },
+    {
+      "id": "F009",
+      "topic": "月球登陆",
+      "entities": [
+        "阿波罗",
+        "登月",
+        "月球",
+        "美国",
+        "1969"
+      ],
+      "claim": "美国阿波罗11号于1969年实现人类首次登月",
+      "verdict": "true",
+      "sources": [
+        {
+          "title": "Apollo 11 Mission Overview - NASA",
+          "url": "https://www.nasa.gov/mission/apollo-11/",
+          "domain": "nasa.gov",
+          "published_at": "2023-07-20",
+          "credibility": "A",
+          "credibility_score": 98,
+          "snippet": "Apollo 11 landed on the Moon on July 20, 1969, with astronauts Neil Armstrong and Buzz Aldrin."
+        },
+        {
+          "title": "人类登月50周年 - 中国国家航天局",
+          "url": "https://www.cnsa.gov.cn/n6758823/n6758838/c6810261/content.html",
+          "domain": "cnsa.gov.cn",
+          "published_at": "2019-07-20",
+          "credibility": "A",
+          "credibility_score": 94,
+          "snippet": "1969年7月20日，阿波罗11号登月舱降落月球静海，阿姆斯特朗成为首位踏上月面的人类。"
+        }
+      ]
+    },
+    {
+      "id": "F010",
+      "topic": "食盐加碘",
+      "entities": [
+        "食盐",
+        "加碘",
+        "碘盐",
+        "甲状腺",
+        "补碘"
+      ],
+      "claim": "食用加碘盐会导致甲状腺疾病高发",
+      "verdict": "false",
+      "sources": [
+        {
+          "title": "食盐加碘消除碘缺乏危害管理条例解读 - 国家卫生健康委员会",
+          "url": "http://www.nhc.gov.cn/jkj/s5879/2021/iodized-salt.html",
+          "domain": "nhc.gov.cn",
+          "published_at": "2021-05-15",
+          "credibility": "A",
+          "credibility_score": 95,
+          "snippet": "我国碘盐浓度标准经过科学测算，正常食用不会导致碘过量，加碘政策显著降低了碘缺乏病发病率。"
+        },
+        {
+          "title": "碘盐与甲状腺疾病关系研究 - 中华医学会",
+          "url": "https://www.cma.org.cn/art/2022/5/20/art_128_4567.html",
+          "domain": "cma.org.cn",
+          "published_at": "2022-05-20",
+          "credibility": "A",
+          "credibility_score": 92,
+          "snippet": "现有流行病学证据不支持碘盐导致甲状腺疾病高发的结论，甲状腺结节检出率上升主要与检测技术进步相关。"
+        }
+      ]
+    },
+    {
+      "id": "F011",
+      "topic": "闰年判定",
+      "entities": [
+        "闰年",
+        "2026",
+        "2月29日",
+        "闰年判定",
+        "闰二月",
+        "2月"
+      ],
+      "claim": "2026年是闰年，二月有29天",
+      "verdict": "false",
+      "explain": "公历闰年规则为「能被4整除且不能被100整除，或能被400整除」。2026÷4=506.5，不能整除，故2026年为平年，全年365天，2月只有28天；相邻的闰年为2024年与2028年。",
+      "sources": [
+        {
+          "title": "闰年 - 维基百科",
+          "url": "https://zh.wikipedia.org/wiki/%E9%97%B0%E5%B9%B4",
+          "domain": "zh.wikipedia.org",
+          "published_at": "2024-03-11",
+          "credibility": "B",
+          "credibility_score": 86,
+          "snippet": "闰年是为了弥补因人为历法规定造成的年度天数与地球实际公转周期的时间差而设立的，规则为能被4整除但不能被100整除，或能被400整除。"
+        },
+        {
+          "title": "中国科学院国家授时中心",
+          "url": "http://www.ntsc.ac.cn/",
+          "domain": "ntsc.ac.cn",
+          "published_at": "2024-01-01",
+          "credibility": "A",
+          "credibility_score": 92,
+          "snippet": "国家授时中心负责我国标准时间（UTC(NTSC)）的产生、保持与发播，公开发布公历闰年、闰秒等历法信息。"
+        }
+      ]
+    },
+    {
+      "id": "F012",
+      "topic": "WiFi辐射",
+      "entities": [
+        "WiFi",
+        "wifi",
+        "路由器",
+        "辐射",
+        "致癌",
+        "信号"
+      ],
+      "claim": "路由器发出的WiFi辐射会致癌",
+      "verdict": "false",
+      "explain": "路由器产生的是非电离射频电磁场，能量远低于破坏 DNA 化学键所需的阈值。世界卫生组织下属 IARC 将其列为 2B 类「可能对人类致癌」，含义是证据有限而非确认致癌。",
+      "sources": [
+        {
+          "title": "世界卫生组织 · 电磁场与健康",
+          "url": "https://www.who.int/health-topics/electromagnetic-fields",
+          "domain": "who.int",
+          "published_at": "2023-05-10",
+          "credibility": "A",
+          "credibility_score": 95,
+          "snippet": "在低强度 exposure 下，射频电磁场没有已证实的健康影响；现有证据不足以确认其致癌性。"
+        },
+        {
+          "title": "中国互联网联合辟谣平台",
+          "url": "https://www.piyao.org.cn/",
+          "domain": "piyao.org.cn",
+          "published_at": "2024-01-01",
+          "credibility": "A",
+          "credibility_score": 93,
+          "snippet": "WiFi辐射属于非电离辐射，日常环境下符合国家标准限值，网传“WiFi致癌”属谣言。"
+        }
+      ]
+    },
+    {
+      "id": "F013",
+      "topic": "酸碱体质",
+      "entities": [
+        "碱性水",
+        "酸碱体质",
+        "碱性",
+        "体质",
+        "弱碱水",
+        "酸性体质"
+      ],
+      "claim": "喝碱性水可以改变人体的酸碱体质",
+      "verdict": "false",
+      "explain": "人体血液 pH 恒定维持在 7.35–7.45，由肺、肾与血液缓冲系统调节，饮水不会改变；“酸碱体质理论”创始人已于 2018 年被美国法院判罚，该理论已被司法判决否定。",
+      "sources": [
+        {
+          "title": "科学辟谣平台（科普中国）",
+          "url": "https://piyao.kepuchina.cn/",
+          "domain": "kepuchina.cn",
+          "published_at": "2024-01-01",
+          "credibility": "A",
+          "credibility_score": 93,
+          "snippet": "“酸碱体质”是伪科学概念，食物与饮水无法改变人体血液的酸碱度，相关保健品宣传属虚假宣传。"
+        },
+        {
+          "title": "中国互联网联合辟谣平台",
+          "url": "https://www.piyao.org.cn/",
+          "domain": "piyao.org.cn",
+          "published_at": "2024-01-01",
+          "credibility": "A",
+          "credibility_score": 93,
+          "snippet": "专家指出：人体不存在“酸性体质”与“碱性体质”之分，碱性水治病的说法没有科学依据。"
+        }
+      ]
+    }
+  ],
+  "fallback_sources": [
+    {
+      "title": "中国互联网联合辟谣平台",
+      "url": "https://www.piyao.org.cn/",
+      "domain": "piyao.org.cn",
+      "published_at": "2024-01-01",
+      "credibility": "A",
+      "credibility_score": 93,
+      "snippet": "中国互联网联合辟谣平台由中央网信办违法和不良信息举报中心主办，提供权威辟谣信息。"
+    },
+    {
+      "title": "科普中国 - 科学辟谣",
+      "url": "https://www.kepuchina.cn/",
+      "domain": "kepuchina.cn",
+      "published_at": "2024-01-01",
+      "credibility": "A",
+      "credibility_score": 88,
+      "snippet": "科普中国是中国科协主办的国家级科普平台，设有科学辟谣专栏。"
+    },
+    {
+      "title": "腾讯较真查证平台",
+      "url": "https://vp.fact.qq.com/",
+      "domain": "fact.qq.com",
+      "published_at": "2024-01-01",
+      "credibility": "B",
+      "credibility_score": 78,
+      "snippet": "较真平台聚焦网络流传信息的核实与查证，提供事实核查报告。"
+    }
+  ]
+}

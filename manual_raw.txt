@@ -1,0 +1,311 @@
+查证工具产品实现手册
+WaytoAGI AI切磋大会 · 1024超能Coding周末 · 郑州站
+赛道：查证（AI侦探社）
+目标：开发查证工具，输出带来源的查证卡，让判断有据可查
+核心要求：结论有依据、来源可追溯
+活动时间：2026年10月24日—25日
+
+目 录
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \o "1-2" \h \z \u </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:hyperlink w:anchor="_LarkToc00001" w:history="1"><w:r><w:t>一、产品定义与MVP范围</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00001 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00002" w:history="1"><w:r><w:t>（一）产品定位</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00002 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00003" w:history="1"><w:r><w:t>（二）MVP功能边界</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00003 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00004" w:history="1"><w:r><w:t>（三）主流程数据流</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00004 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00005" w:history="1"><w:r><w:t>二、技术选型与系统架构</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00005 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>2
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00006" w:history="1"><w:r><w:t>（一）推荐技术栈</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00006 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>2
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00007" w:history="1"><w:r><w:t>（二）系统架构与模块划分</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00007 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>2
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00008" w:history="1"><w:r><w:t>（三）运行时序</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00008 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>2
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00009" w:history="1"><w:r><w:t>三、核心模块实现</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00009 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>3
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00010" w:history="1"><w:r><w:t>（一）输入模块</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00010 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>3
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00011" w:history="1"><w:r><w:t>（二）全网检索模块</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00011 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>3
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00012" w:history="1"><w:r><w:t>（三）信息核对与推理模块</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00012 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>3
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00013" w:history="1"><w:r><w:t>（四）可信度分级模块</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00013 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>4
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00014" w:history="1"><w:r><w:t>（五）查证卡生成模块</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00014 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>4
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00015" w:history="1"><w:r><w:t>（六）输出模块</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00015 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>5
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00016" w:history="1"><w:r><w:t>四、关键设计细节</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00016 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>5
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00017" w:history="1"><w:r><w:t>（一）大模型提示词框架</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00017 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>5
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00018" w:history="1"><w:r><w:t>（二）来源可信度评估规则</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00018 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>5
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00019" w:history="1"><w:r><w:t>（三）冲突信息处理</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00019 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>5
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00020" w:history="1"><w:r><w:t>五、接口与数据设计</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00020 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00021" w:history="1"><w:r><w:t>（一）核心接口清单</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00021 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00022" w:history="1"><w:r><w:t>（二）数据设计要点</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00022 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00023" w:history="1"><w:r><w:t>六、开发里程碑与自测</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00023 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00024" w:history="1"><w:r><w:t>（一）里程碑拆分</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00024 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00025" w:history="1"><w:r><w:t>（二）三轮自测用例</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00025 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>6
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00026" w:history="1"><w:r><w:t>七、本地部署与运行</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00026 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00027" w:history="1"><w:r><w:t>（一）环境要求</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00027 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00028" w:history="1"><w:r><w:t>（二）启动步骤</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00028 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00029" w:history="1"><w:r><w:t>（三）排查要点</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00029 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+<w:tab w:val="right" w:leader="dot" w:pos="9072"/></w:tabs></w:pPr><w:hyperlink w:anchor="_LarkToc00030" w:history="1"><w:r><w:t>八、常见问题与避错清单</w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGEREF _LarkToc00030 \h </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>7
+
+一、产品定义与MVP范围
+（一）产品定位
+本产品是一个查证工具：用户输入一段文本或网传消息，工具自动完成全网检索、信息核对与溯源，输出带来源的结构化查证卡。查证卡呈现「结论＋依据＋来源」，强调结论有依据、来源可追溯。产品面向有辨别网传信息需求的用户，如自媒体小编、学生、普通网民和宣传岗位人员。
+（二）MVP功能边界
+MVP（最小可行产品）只做最能支撑主流程跑通的功能，其余作为加分项在完成后酌情添加。
+表1  MVP功能边界
+范围
+功能
+说明
+MVP必做
+文本输入
+输入一段待核实内容，支持直接粘贴
+MVP必做
+全网检索
+检索关键词并抓取可信网页来源
+MVP必做
+信息核对
+对比原文与检索结果，识别一致与矛盾
+MVP必做
+可信度分级
+输出属实／不实／存疑三级结论
+MVP必做
+查证卡生成
+固定版式输出结论、依据、来源、核查时间
+MVP必做
+页面展示
+网页界面呈现查证卡，来源可点击
+加分项
+OCR识别
+截图识别网传消息后再查证
+加分项
+批量查证
+一次处理多条文本
+加分项
+卡片导出
+查证卡导出为图片，便于分享
+加分项
+来源可信度标签
+对每个来源标注可信度
+（三）主流程数据流
+一次查证的完整数据流为：用户输入待核实文本，系统从中提取关键词并发起全网检索，将检索结果（标题、摘要、来源域名、发布时间）与原文一并交给大模型进行核对与推理，模型输出结构化判断（结论、依据、相关来源），随后系统按固定格式组装查证卡，最终在页面展示并支持导出。全程记录每一条来源，保证可追溯。
+二、技术选型与系统架构
+（一）推荐技术栈
+以下为推荐实现方案，团队可按自身情况替换组件；赛事不限工具，不因使用某家产品加减分。
+表2  推荐技术栈
+层级
+推荐选型
+作用
+可替换方案
+前端
+轻量页面（HTML/JS单页）或主流前端框架
+页面交互、查证卡展示
+任意前端框架
+后端
+Python（FastAPI或Flask）
+编排检索、核对、生成查证卡
+Node.js、Java等
+大模型
+任一可用大模型API
+信息核对、推理、可信度分级
+自部署开源模型
+搜索
+搜索接口或站内检索
+获取网页检索结果
+爬虫抓取公开页面
+存储
+JSON/轻量数据库
+保存查证记录与历史
+数据库
+OCR（加分）
+通用OCR能力
+截图文本识别
+其他OCR服务
+（二）系统架构与模块划分
+系统按功能划分为六个模块，模块间通过明确的数据接口衔接，便于分工开发与单点替换。
+表3  系统模块划分
+模块
+主要职责
+输入
+输出
+输入模块
+接收文本，可选OCR识别
+用户文本/截图
+待核实文本
+检索模块
+提取关键词、发起搜索、抓取结果
+待核实文本
+候选来源列表
+核对推理模块
+对比原文与来源，识别一致/矛盾
+原文＋来源列表
+结构化核对结果
+分级模块
+按证据强度给出可信度结论
+核对结果
+属实/不实/存疑
+查证卡生成模块
+按固定结构组装卡片
+结论＋依据＋来源
+查证卡数据
+输出模块
+页面渲染与卡片导出
+查证卡数据
+页面/图片
+（三）运行时序
+用户提交文本后，系统依次执行：提取关键词→检索→来源可信度初筛→大模型核对→分级→组装查证卡→渲染展示。检索无结果或来源过少时，直接进入「存疑/信息不足」分支，不强行下结论。
+三、核心模块实现
+（一）输入模块
+1. 功能
+接收用户粘贴的文本；加分项支持截图上传，经OCR识别后转为待核实文本。
+2. 实现要点
+做输入长度与空值校验，避免空文本进入后续流程。
+OCR识别后保留原图与识别文本，供展示核对。
+3. 边界处理
+空输入提示用户补充；文本过短且无有效实体时，提示信息不足。
+（二）全网检索模块
+1. 功能
+从待核实文本中提取核心关键词，发起搜索，返回候选网页来源（标题、摘要、链接、域名、发布时间）。
+2. 实现要点
+关键词提取：优先选取人物、机构、地点、事件、数字等实体，生成1至3条搜索词。
+结果归一化：将不同来源的检索结果统一为结构化条目。
+可信度初筛：对返回来源按域名与内容做初步过滤，剔除明显低质来源。
+3. 边界处理
+检索无结果或结果过少时，标记「信息不足」，交分级模块输出存疑结论。
+（三）信息核对与推理模块
+1. 功能
+将原文与候选来源进行对比，判断各来源与原文的一致或矛盾关系，并抽取可作为依据的要点。
+2. 实现要点
+构造核对提示词，要求模型分别给出「支持原文的依据」「与原文矛盾的证据」及各自对应的来源。
+对冲突来源进行并列呈现，不预设某一方正确。
+3. 边界处理
+来源相互冲突且无法判别时，保留分歧并降低置信度，交由分级模块处理。
+（四）可信度分级模块
+1. 功能
+根据支持与矛盾的证据数量、来源可信度，给出三级结论：属实、不实、存疑（信息不足）。
+2. 分级规则参考
+表4  可信度分级规则
+结论
+判定条件
+属实
+多个可信来源一致支持原文，未发现矛盾证据
+不实
+多个可信来源一致否定原文，矛盾证据充分
+存疑/信息不足
+证据不足、来源过少、或支持与矛盾并存且无法判别
+3. 实现要点
+分级结论必须能回指到具体依据与来源，避免仅给结论不给证据。
+（五）查证卡生成模块
+1. 功能
+按固定结构组装查证卡，字段包括原文、结论、依据条目、来源链接、来源可信度标记、核查时间。
+2. 数据结构
+查证卡以结构化数据承载，主要字段包括：原文、结论、依据列表、来源列表（含链接与可信度）、核查时间。该结构既用于页面渲染，也用于导出。
+3. 实现要点
+每条依据必须对应来源链接，保证可追溯。
+固定版式，保证多次查证输出形式一致。
+（六）输出模块
+1. 功能
+在页面展示查证卡，来源可点击跳转；加分项支持卡片导出为图片，便于分享。
+2. 实现要点
+页面清晰呈现结论分级与依据来源层级。
+导出时保持版式完整，不因导出丢失字段。
+四、关键设计细节
+（一）大模型提示词框架
+提示词设计是核对质量的关键，建议拆分为三个独立提示词，分别负责检索词生成、信息核对、可信度分级，避免一次提示词任务过重。
+检索提示词：给定待核实文本，输出核心实体与搜索关键词。
+核对提示词：给定原文与来源列表，输出支持依据、矛盾证据及对应来源。
+分级提示词：给定核对结果，输出结论（属实/不实/存疑）与理由。
+（二）来源可信度评估规则
+表5  来源可信度评估维度
+维度
+评估要点
+来源性质
+官方、权威机构、正规媒体高于个人自媒体
+发布时间
+时效性符合事件背景者更可信
+一致性
+与多方来源一致程度越高越可信
+证据链
+能给出可核验事实与引用的来源更可信
+（三）冲突信息处理
+当不同来源结论冲突时，不强行二选一，而是并列呈现支持与矛盾证据，标注「存疑」，并向用户说明分歧点，由用户结合更多信息判断。
+五、接口与数据设计
+（一）核心接口清单
+表6  核心接口清单
+模块
+接口/函数
+主要入参
+主要出参
+输入
+接收文本
+文本内容
+校验后文本
+检索
+提取关键词
+待核实文本
+关键词列表
+检索
+发起检索
+关键词
+候选来源列表
+核对
+核对原文
+原文＋来源
+核对结果
+分级
+判定可信度
+核对结果
+三级结论
+生成
+组装查证卡
+结论＋依据＋来源
+查证卡数据
+输出
+渲染/导出
+查证卡数据
+页面/图片
+（二）数据设计要点
+来源记录必须保存链接、标题、域名、发布时间，保证溯源。
+查证卡数据采用结构化格式，便于页面渲染与后续扩展。
+查证记录可持久化保存，便于演示与复盘。
+六、开发里程碑与自测
+（一）里程碑拆分
+里程碑一：输入＋检索跑通，能返回候选来源。
+里程碑二：核对＋分级跑通，能输出结构化结论。
+里程碑三：查证卡生成＋页面展示跑通，形成完整闭环。
+里程碑四（加分）：OCR、批量、导出、来源标签。
+（二）三轮自测用例
+表7  自测用例清单
+用例类型
+输入样例
+预期输出
+基础用例（真实信息）
+一句常识性事实描述
+结论属实，带来源佐证
+负面用例（典型谣言）
+一条常见网络谣言
+结论不实，标注矛盾证据
+边界用例（信息不足）
+信息模糊、网上资料少的内容
+结论存疑，不强行下结论
+七、本地部署与运行
+（一）环境要求
+准备可运行Python环境，安装后端框架、大模型SDK与搜索依赖；前端页面可本地直接打开。具体依赖以项目README为准。
+（二）启动步骤
+安装项目依赖。
+配置大模型与搜索接口的密钥（按所选服务填写）。
+启动后端服务，本地运行。
+打开前端页面，提交一条文本验证完整链路。
+（三）排查要点
+检索无结果：检查关键词提取与搜索配置。
+核对异常：检查提示词与来源数据是否传全。
+导出失败：检查渲染依赖与字段完整性。
+八、常见问题与避错清单
+表8  常见问题与对策
+问题
+原因
+对策
+主流程跑不通
+功能堆砌过多
+先裁剪到MVP闭环，再逐步加功能
+检索结果杂乱
+关键词提取不佳
+优先提取实体词，限制搜索词数量
+结论无依据
+核对提示词未要求来源
+强制每条依据对应来源链接
+来源冲突无法处理
+缺少分级策略
+并列呈现分歧，输出存疑
+演示报错
+未充分自测
+多轮自测＋提前录屏备份
