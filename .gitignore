@@ -12,6 +12,12 @@ env/
 *.journal.lock
 backend/data/history.json
 
+# ---- 运行时数据：用量统计与 sqlite（含会话/用户数据，不入仓库）----
+**/data/app.db
+**/data/usage_log.jsonl
+**/data/usage_state.json
+**/data/.usage_cleaned
+
 # ---- 本地敏感配置：口令、密钥、隧道 ----
 **/data/auth.json
 .env
