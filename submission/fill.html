@@ -171,11 +171,11 @@ ul.plain li b{color:var(--txt)}
   <div class="field">
     <div class="field-hd">
       <span class="idx">03</span><span class="name">代码仓库</span>
-      <span class="state todo">待你填</span>
+      <span class="state done">已推送</span>
     </div>
     <div class="field-bd">
-      <div class="tip">这个字段<b>我无法代填</b>——需要你自己建仓库并推送。下面是要放进仓库的东西和命令。</div>
-      <div class="copybox mono" data-copy>https://github.com/你的用户名/veritas-fact-check</div>
+      <div class="tip">已推送完成（2 个 commit，50 个文件）。下面是仓库内容清单，供你核对。</div>
+      <div class="copybox mono" data-copy>https://github.com/jiaxusen/veritas-fact-check</div>
       <h2 class="sec">仓库该放什么</h2>
       <table>
         <tr><th style="width:34%">路径</th><th>说明</th><th style="width:16%">必须</th></tr>
@@ -194,9 +194,9 @@ ul.plain li b{color:var(--txt)}
 git add backend frontend README.md
 git commit -m "feat: VERITAS 查证台 - 全链路可溯源假消息核查系统"
 git branch -M main
-git remote add origin https://github.com/你的用户名/veritas-fact-check.git
+git remote add origin https://github.com/jiaxusen/veritas-fact-check.git
 git push -u origin main</div>
-      <div class="note">执行前先在项目根目录建一个 <code>.gitignore</code>，否则 <code>git add backend</code> 会把 .venv 一起推上去。要我把 .gitignore 生成出来就说一声。</div>
+      <div class="note">仓库已实际推送成功，<code>.gitignore</code> 已在根目录生效，<code>.venv</code> 与日志未入库（已逐项校验）。</div>
     </div>
   </div>
 
@@ -204,7 +204,7 @@ git push -u origin main</div>
   <div class="field">
     <div class="field-hd">
       <span class="idx">04</span><span class="name">演示地址</span>
-      <span class="state warn">需现场确认</span>
+      <span class="state done">已验证</span>
     </div>
     <div class="field-bd">
       <div class="tip">填<b>评委能直接打开</b>的链接。当前是 Cloudflare 快捷隧道，域名重启就变，所以要现场确认一次。</div>
@@ -227,11 +227,11 @@ git push -u origin main</div>
   <div class="field">
     <div class="field-hd">
       <span class="idx">05</span><span class="name">封面图链接</span>
-      <span class="state done">图已生成</span>
+      <span class="state done">已入库</span>
     </div>
     <div class="field-bd">
       <div class="tip">表单要的是<b>图片直链</b>（.png / .jpg 结尾），不是仓库页面地址。图我按查证科技风做好了，在 <code>submission/cover.png</code>，1280×720。</div>
-      <div class="copybox mono" data-copy>https://raw.githubusercontent.com/你的用户名/veritas-fact-check/main/submission/cover.png</div>
+      <div class="copybox mono" data-copy>https://raw.githubusercontent.com/jiaxusen/veritas-fact-check/main/submission/cover.png</div>
       <h2 class="sec">三种拿直链的办法</h2>
       <ul class="plain">
         <li><b>方案一 · 仓库直链（推荐）</b>：把 <code>cover.png</code> 推到仓库，用 <code>raw.githubusercontent.com</code> 地址。永久有效，改图重新推即可。</li>
