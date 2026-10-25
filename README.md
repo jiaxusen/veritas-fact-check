@@ -135,7 +135,7 @@ python run_server.py
 |---|---|---|
 | 本机 | `http://127.0.0.1:8000` | 免密 |
 | 局域网（同一 WiFi） | `http://<本机局域网IP>:8000`（当前 `192.168.1.199`） | 免密 |
-| 公网（Cloudflare 隧道） | `https://combat-bloggers-districts-nails.trycloudflare.com` | **需要口令** |
+| 公网（Cloudflare 隧道） | `https://spirits-chef-sustainability-tea.trycloudflare.com` | **需要口令** |
 
 服务默认监听 `0.0.0.0:8000`。局域网访问需要一条防火墙入站放行规则（仅放行同网段）：
 ```powershell
