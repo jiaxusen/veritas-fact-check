@@ -12,8 +12,10 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 import access_module
+import db_module
 import llm_engine
 import usage_module
+import user_module
 from concurrent.futures import ThreadPoolExecutor
 from modules.card_module import build_card
 from modules.grade_module import grade
@@ -36,6 +38,12 @@ BASE_DIR = Path(__file__).resolve().parent
 FRONTEND_DIR = BASE_DIR.parent / "frontend"
 HISTORY_FILE = BASE_DIR / "data" / "history.json"
 app = FastAPI(title="查证工具 API", version="2.0.0")
+try:
+    db_module.init_db()          # 建表
+    user_module.ensure_owner()   # 确保 owner 存在
+    db_module.migrate_legacy()   # 再把旧 history.json 迁到 owner 名下
+except Exception as _db_exc:
+    print(f"[warn] 数据库初始化失败: {_db_exc}")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -182,25 +190,47 @@ class OcrRequest(BaseModel):
     data: str = Field(..., description="图片 base64，可带 data:image/...;base64, 前缀")
 class AccessCodeRequest(BaseModel):
     code: str = Field(..., description="访问密令")
-def _append_history(card: dict) -> None:
-    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
-    records = []
-    if HISTORY_FILE.exists():
-        try:
-            records = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            records = []
-    records.insert(0, {
-        "card_id": card["card_id"],
-        "created_at": card["created_at_display"],
-        "input_text": card["input_text"][:80],
-        "label": card["verdict"]["label"],
-        "level": card["verdict"]["level"],
-        "confidence": card["verdict"]["confidence"],
-    })
-    HISTORY_FILE.write_text(
-        json.dumps(records[:50], ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+def _current_user(request: Request | None) -> dict | None:
+    """从请求中解析登录用户（Bearer / X-User-Token / Cookie）。"""
+    if request is None:
+        return None
+    auth = request.headers.get("authorization") or ""
+    token = auth[7:].strip() if auth.lower().startswith("bearer ") else ""
+    token = token or (request.headers.get("x-user-token") or "")
+    if not token:
+        token = request.cookies.get("user_token") or ""
+    return user_module.user_by_token(token)
+def _owner_id() -> int | None:
+    """owner 账号 id（未登录请求的记录归属）。"""
+    try:
+        with db_module.connect() as conn:
+            row = conn.execute("SELECT id FROM users WHERE username = ?", ("owner",)).fetchone()
+            return row["id"] if row else None
+    except Exception:
+        return None
+def _append_history(card: dict, request: Request | None = None) -> None:
+    """写入查证记录：登录用户归属自己，未登录归 owner。"""
+    user = _current_user(request)
+    user_id = user["id"] if user else _owner_id()
+    if not user_id:
+        return
+    try:
+        with db_module.connect() as conn:
+            conn.execute(
+                "INSERT INTO records (user_id, card_id, input_text, label, level, confidence, created_at)"
+                " VALUES (?,?,?,?,?,?,?)",
+                (
+                    user_id,
+                    card["card_id"],
+                    str(card["input_text"])[:200],
+                    card["verdict"]["label"],
+                    card["verdict"]["level"],
+                    float(card["verdict"]["confidence"] or 0),
+                    card.get("created_at_display") or time.strftime("%Y-%m-%d %H:%M:%S"),
+                ),
+            )
+    except Exception:
+        pass
 @app.get("/api/health")
 def health():
     remote = remote_module.status()
@@ -275,7 +305,7 @@ def screen_capture(request: Request):
 
 
 @app.post("/api/verify")
-def verify(req: VerifyRequest):
+def verify(req: VerifyRequest, request: Request):
     try:
         card = _run(
             req.text,
@@ -285,12 +315,12 @@ def verify(req: VerifyRequest):
         )
     except InputError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
-    _append_history(card)
+    _append_history(card, request)
     return card
 
 
 @app.post("/api/verify/segment")
-def verify_segment(req: VerifyRequest):
+def verify_segment(req: VerifyRequest, request: Request):
     """长段拆解核验：按句拆成事实点后逐句查证，回答「哪一句不实」。
 
     只有拆出 2 条及以上事实点时才进入逐句模式，否则退化为整段查证。
@@ -307,7 +337,7 @@ def verify_segment(req: VerifyRequest):
             card = _run(req.text, engine, mode, scene)
         except InputError as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
-        _append_history(card)
+        _append_history(card, request)
         return {"segmented": False, "mode": mode, "engine": engine, "segments": [], "aggregate": None, "card": card}
     started = time.perf_counter()
     workers = 3 if seg_engine == "local" else 2
@@ -341,16 +371,16 @@ def verify_segment(req: VerifyRequest):
         "elapsed_ms": elapsed_ms,
     }
 @app.post("/api/refute/script")
-def refute_script(req: VerifyRequest):
+def refute_script(req: VerifyRequest, request: Request):
     """根据查证结果生成可直接转发的辟谣 / 澄清话术。"""
     mode = _safe_mode(req.mode)
     card = _run(req.text, _safe_engine(req.engine), mode)
-    _append_history(card)
+    _append_history(card, request)
     return {"card": card, **build_script(card, mode)}
 
 
 @app.post("/api/verify/llm")
-def verify_llm(req: VerifyRequest):
+def verify_llm(req: VerifyRequest, request: Request):
     """大模型增强查证：LLM 提取关键词 + 联网检索 + LLM 语义核对。
     未配置密钥时自动回退本地引擎。
     """
@@ -366,7 +396,7 @@ def verify_llm(req: VerifyRequest):
             if usage_module.is_degraded()
             else "未配置大模型密钥，已自动使用本地查证引擎"
         )
-        _append_history(card)
+        _append_history(card, request)
         return card
     started = time.perf_counter()
     try:
@@ -421,7 +451,7 @@ def verify_llm(req: VerifyRequest):
             "id": k["id"], "name": k["name"], "consensus": k["consensus"],
             "explain": k["explain"], "caveat": k.get("caveat", ""),
         }
-    _append_history(card)
+    _append_history(card, request)
     return card
 @app.post("/api/verify/batch")
 def verify_batch(req: BatchRequest):
@@ -440,11 +470,15 @@ def verify_batch(req: BatchRequest):
 @app.get("/api/card/{card_id}/html", response_class=HTMLResponse)
 def card_html(card_id: str):
     records = []
-    if HISTORY_FILE.exists():
-        try:
-            records = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            records = []
+    try:
+        with db_module.connect() as conn:
+            rows = conn.execute(
+                "SELECT card_id, input_text, label, confidence FROM records WHERE card_id = ? LIMIT 1",
+                (card_id,),
+            ).fetchall()
+            records = [dict(r) for r in rows]
+    except Exception:
+        records = []
     for rec in records:
         if rec["card_id"] == card_id:
             return HTMLResponse(
@@ -474,13 +508,61 @@ def access_check(req: AccessCodeRequest):
     """校验访问令牌（code 字段承载令牌）。"""
     return {"valid": access_module.check_token(req.code)}
 @app.get("/api/history")
-def history():
-    if not HISTORY_FILE.exists():
+def history(request: Request, limit: int = 50):
+    """当前用户的历史查证记录（未登录则返回 owner 的）。"""
+    user = _current_user(request)
+    user_id = user["id"] if user else _owner_id()
+    if not user_id:
         return {"records": []}
+    limit = max(1, min(int(limit or 50), 200))
     try:
-        return {"records": json.loads(HISTORY_FILE.read_text(encoding="utf-8"))}
-    except json.JSONDecodeError:
+        with db_module.connect() as conn:
+            rows = conn.execute(
+                "SELECT card_id, created_at, input_text, label, level, confidence"
+                " FROM records WHERE user_id = ? ORDER BY id DESC LIMIT ?",
+                (user_id, limit),
+            ).fetchall()
+        return {"records": [dict(r) for r in rows]}
+    except Exception:
         return {"records": []}
+class RegisterRequest(BaseModel):
+    username: str = Field(..., description="用户名 3~20 位")
+    password: str = Field(..., description="密码 6~64 位")
+class LoginRequest(BaseModel):
+    username: str = Field(..., description="用户名")
+    password: str = Field(..., description="密码")
+@app.post("/api/user/register")
+def user_register(req: RegisterRequest):
+    """注册新用户（默认免费版，每日 100 次额度）。"""
+    try:
+        info = user_module.register(req.username, req.password)
+    except user_module.UserError as exc:
+        raise HTTPException(status_code=400, detail=exc.message) from exc
+    return {"ok": True, "user": info}
+@app.post("/api/user/login")
+def user_login(req: LoginRequest):
+    """登录并签发令牌（7 天有效）。"""
+    try:
+        result = user_module.login(req.username, req.password)
+    except user_module.UserError as exc:
+        raise HTTPException(status_code=401, detail=exc.message) from exc
+    return {"ok": True, **result}
+@app.post("/api/user/logout")
+def user_logout(request: Request):
+    """登出，令牌立即失效。"""
+    auth = request.headers.get("authorization") or ""
+    token = auth[7:].strip() if auth.lower().startswith("bearer ") else ""
+    token = token or (request.headers.get("x-user-token") or "")
+    return {"ok": user_module.logout(token)}
+@app.get("/api/user/me")
+def user_me(request: Request):
+    """当前登录用户信息 + 额度余量。"""
+    user = _current_user(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="未登录或登录已过期")
+    identity, privileged = _identity_of(request, "")
+    usage = usage_module.status_for(f"user:{user['id']}", privileged)
+    return {"ok": True, "user": user, "usage": usage}
 @app.get("/api/usage/status")
 def usage_status(request: Request):
     """当前身份的额度余量与限流状态。"""
