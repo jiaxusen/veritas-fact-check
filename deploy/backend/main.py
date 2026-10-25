@@ -95,9 +95,12 @@ async def access_gate(request: Request, call_next):
             and not path.startswith("/api/")
         ):
             params = {k: v for k, v in request.query_params.items() if k != "key"}
-            resp = RedirectResponse(
-                str(request.url.replace_query_params(**params)), status_code=307
-            )
+            # 关键：用相对路径重定向——绝对地址会泄露平台内部沙盒域名，
+            # 导致浏览器跳离当前站点、Cookie 丢失、回到登录页
+            from urllib.parse import urlencode
+            _query = urlencode(params)
+            _target = _path + (("?" + _query) if _query else "")
+            resp = RedirectResponse(_target, status_code=307)
         else:
             # 防烧钱三件套：限流 + 配额（仅 API 写接口）
             if request.method == "POST" and request.url.path.startswith("/api/"):
